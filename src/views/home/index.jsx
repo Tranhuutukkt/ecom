@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <main className="content">
-      <div className="home">
+      {/* <div className="home">
         <div className="banner">
           <div className="banner-desc">
             <h1 className="text-thin">
@@ -85,7 +85,7 @@ const Home = () => {
             />
           )}
         </div>
-      </div>
+      </div> */}
     </main>
   );
 };
