@@ -34,7 +34,7 @@ const EditForm = ({ isLoading, authProvider }) => {
         name="address"
         type="text"
         label="Address (Will be used for checkout)"
-        placeholder="#245 Brgy. Maligalig, Arayat Pampanga, Philippines"
+        placeholder="Hanoi University of Science and Technology"
         component={CustomInput}
         style={{ textTransform: 'capitalize' }}
       />
