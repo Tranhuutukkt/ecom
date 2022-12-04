@@ -72,10 +72,16 @@ const Navigation = () => {
         <Link onClick={onClickLink} to="/"><img alt="Logo" src={logo} /></Link>
       </div>
       <ul className="navigation-menu-main">
-        {/* <li><NavLink activeClassName="navigation-menu-active" exact to={ROUTE.HOME}>Home</NavLink></li>
-        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.SHOP}>Shop</NavLink></li>
-        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.FEATURED_PRODUCTS}>Featured</NavLink></li>
-        <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.RECOMMENDED_PRODUCTS}>Recommended</NavLink></li> */}
+        {
+          <div>
+            <li><NavLink activeClassName="navigation-menu-active" exact to={ROUTE.HOME}>Home</NavLink></li>
+            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.SHOP}>Shop</NavLink></li>
+            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.FEATURED_PRODUCTS}>Featured</NavLink></li>
+            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.RECOMMENDED_PRODUCTS}>Recommended</NavLink></li>
+          </div>
+        }
+        
+        
       </ul>
       {(pathname === ROUTE.SHOP || pathname === ROUTE.SEARCH) && (
         <FiltersToggle>
@@ -85,9 +91,9 @@ const Navigation = () => {
           </button>
         </FiltersToggle>
       )}
-      {/* <SearchBar /> */}
+      {<SearchBar />}
       <ul className="navigation-menu">
-        {/* <li className="navigation-menu-item">
+        {<li className="navigation-menu-item">
           <BasketToggle>
             {({ onClickToggle }) => (
               <button
@@ -103,7 +109,7 @@ const Navigation = () => {
               </button>
             )}
           </BasketToggle>
-        </li> */}
+        </li>}
         {store.user ? (
           <li className="navigation-menu-item">
             <UserAvatar />

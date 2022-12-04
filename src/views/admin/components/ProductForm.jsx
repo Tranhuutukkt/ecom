@@ -14,10 +14,10 @@ import * as Yup from 'yup';
 
 // Default brand names that I used. You can use what you want
 const brandOptions = [
-  { value: 'Salt Maalat', label: 'Salt Maalat' },
-  { value: 'Betsin Maalat', label: 'Betsin Maalat' },
-  { value: 'Sexbomb', label: 'Sexbomb' },
-  { value: 'Black Kibal', label: 'Black Kibal' }
+  { value: 'UNIQLO', label: 'UNIQLO' },
+  { value: 'Nike', label: 'Nike' },
+  { value: 'GUCCI', label: 'GUCCI' },
+  { value: 'Louis Vuitton', label: 'Louis Vuitton' }
 ];
 
 const FormSchema = Yup.object().shape({
@@ -40,7 +40,7 @@ const FormSchema = Yup.object().shape({
     .of(Yup.string())
     .min(1, 'Please enter at least 1 keyword for this product.'),
   sizes: Yup.array()
-    .of(Yup.number())
+    .of(Yup.string())
     .min(1, 'Please enter a size for this product.'),
   isFeatured: Yup.boolean(),
   isRecommended: Yup.boolean(),
@@ -106,7 +106,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     name="name"
                     type="text"
                     label="* Product Name"
-                    placeholder="Gago"
+                    placeholder="T-shirt"
                     style={{ textTransform: 'capitalize' }}
                     component={CustomInput}
                   />
@@ -175,7 +175,6 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     defaultValue={values.keywords.map((key) => ({ value: key, label: key }))}
                     name="sizes"
                     iid="sizes"
-                    type="number"
                     isMulti
                     disabled={isLoading}
                     placeholder="Create/Select Sizes"
