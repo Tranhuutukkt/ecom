@@ -270,6 +270,9 @@ class Firebase {
     this.db.collection("products").doc(id).update(updates);
 
   removeProduct = (id) => this.db.collection("products").doc(id).delete();
+
+  addReview = async (productID, review) =>
+    await this.db.collection("reviews").add({ userID: this.auth.currentUser.uid, productID, comment: review });
 }
 
 const firebaseInstance = new Firebase();
