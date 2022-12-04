@@ -45,7 +45,7 @@
     "sass-loader": "^11.0.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.1",
-    "vite": "^3.0.2",
+    "vite": "^3.2.4",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
