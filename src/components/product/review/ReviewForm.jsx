@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import firebase from "@/services/firebase";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { displayActionMessage } from "@/helpers/utils";
 
 const ReviewForm = (props) => {
@@ -17,6 +17,7 @@ const ReviewForm = (props) => {
     const doc = await firebase.addReview(id, review);
     if (doc) displayActionMessage("Your review has been saved", "success");
     props.closeFunc();
+    window.location.reload();
   };
   return (
     <div>
