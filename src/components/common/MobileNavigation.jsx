@@ -56,7 +56,7 @@ const Navigation = (props) => {
                     onClick={onClickLink}
                     to={SIGNIN}
                   >
-                    Sign In
+                    ログイン
                   </Link>
                 </li>
               )}

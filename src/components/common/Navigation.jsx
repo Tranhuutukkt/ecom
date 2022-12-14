@@ -74,10 +74,10 @@ const Navigation = () => {
       <ul className="navigation-menu-main">
         {
           <div>
-            <li><NavLink activeClassName="navigation-menu-active" exact to={ROUTE.HOME}>Home</NavLink></li>
-            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.SHOP}>Shop</NavLink></li>
-            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.FEATURED_PRODUCTS}>Featured</NavLink></li>
-            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.RECOMMENDED_PRODUCTS}>Recommended</NavLink></li>
+            <li><NavLink activeClassName="navigation-menu-active" exact to={ROUTE.HOME}>ホームページ</NavLink></li>
+            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.SHOP}>店</NavLink></li>
+            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.FEATURED_PRODUCTS}>特徴</NavLink></li>
+            <li><NavLink activeClassName="navigation-menu-active" to={ROUTE.RECOMMENDED_PRODUCTS}>お勧め</NavLink></li>
           </div>
         }
         
@@ -122,7 +122,7 @@ const Navigation = () => {
                 onClick={onClickLink}
                 to={ROUTE.SIGNUP}
               >
-                Sign Up
+                サインアップ
               </Link>
             )}
             {pathname !== ROUTE.SIGNIN && (
@@ -131,7 +131,7 @@ const Navigation = () => {
                 onClick={onClickLink}
                 to={ROUTE.SIGNIN}
               >
-                Sign In
+                ログイン
               </Link>
             )}
           </li>
