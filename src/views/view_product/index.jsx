@@ -29,7 +29,8 @@ const ViewProduct = () => {
   const [selectedImage, setSelectedImage] = useState(product?.image || "");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
-
+  const viewList = firebase.getReview(id);
+  console.log(viewList);
   const {
     recommendedProducts,
     fetchRecommendedProducts,
@@ -180,7 +181,8 @@ const ViewProduct = () => {
                   </div>
                 </div>
               </div>
-              <div style={{ marginTop: "10rem" }}>
+              <div className='product-modal-details'>
+                <div style={{ marginTop: "10rem" }}>
                 <div className="display-header">
                   <h1>Recommended</h1>
                   <Link to={RECOMMENDED_PRODUCTS}>See All</Link>

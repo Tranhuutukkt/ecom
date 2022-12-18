@@ -148,7 +148,7 @@ class Firebase {
             const query = this.db
               .collection("products")
               .orderBy(app.firestore.FieldPath.documentId())
-              .limit(12);
+              .limit(6);
             const snapshot = await query.get();
 
             clearTimeout(timeout);
