@@ -9,7 +9,7 @@ import {
 } from 'formik';
 import { useFileHandler } from '@/hooks';
 import PropType from 'prop-types';
-import React from 'react';
+import React, {useState} from 'react';
 import * as Yup from 'yup';
 
 // Default brand names that I used. You can use what you want
@@ -19,6 +19,8 @@ const brandOptions = [
   { value: 'GUCCI', label: 'GUCCI' },
   { value: 'Louis Vuitton', label: 'Louis Vuitton' }
 ];
+
+
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
@@ -39,9 +41,15 @@ const FormSchema = Yup.object().shape({
   keywords: Yup.array()
     .of(Yup.string())
     .min(1, 'Please enter at least 1 keyword for this product.'),
-  sizes: Yup.array()
-    .of(Yup.string())
-    .min(1, 'Please enter at least a size for this product.'),
+  numberOfSizes: Yup.number().min(1, 'Please enter at least a size for this product.'),
+  sizes: Yup.array().of(
+      Yup.object().shape({
+          type: Yup.string().required('Size type (L, M, S, ...) is required.'),
+          length: Yup.number(),
+          hip: Yup.number(),
+          waist: Yup.number(),
+          body_height: Yup.number(),
+          })),
   isFeatured: Yup.boolean(),
   isRecommended: Yup.boolean(),
   availableColors: Yup.array()
@@ -49,7 +57,28 @@ const FormSchema = Yup.object().shape({
     .min(1, 'Please add a default color for this product.')
 });
 
+function onChangeSizes(e, field, values, setValues) {
+  const sizes = [...values.sizes];
+  const previousNumber = parseInt(field.value || '0');;
+  const numberOfSizes = e.target.value || 0;
+
+  if (previousNumber < numberOfSizes) {
+    for (let i = previousNumber; i < numberOfSizes; i++) {
+      sizes.push({ type: '', length: 0, hip: 0, waist: 0, body_height: 0});
+    }
+  } else {
+    for (let i = previousNumber; i >= numberOfSizes; i--) {
+      sizes.splice(i, 1);
+    }
+  }
+  setValues({ ...values, sizes });
+
+  // call formik onChange method
+  field.onChange(e);
+}
+
 const ProductForm = ({ product, onSubmit, isLoading }) => {
+
   const initFormikValues = {
     name: product?.name || '',
     brand: product?.brand || '',
@@ -57,6 +86,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
     maxQuantity: product?.maxQuantity || 0,
     description: product?.description || '',
     keywords: product?.keywords || [],
+    numberOfSizes: product?.sizes.length || 0,
     sizes: product?.sizes || [],
     isFeatured: product?.isFeatured || false,
     isRecommended: product?.isRecommended || false,
@@ -71,7 +101,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
   } = useFileHandler({ image: {}, imageCollection: product?.imageCollection || [] });
 
   const onSubmitForm = (form) => {
-    if (imageFile.image.file || product.imageUrl) {
+    if (imageFile.image.file || product.image) {
       onSubmit({
         ...form,
         quantity: 1,
@@ -79,7 +109,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
         // of name here instead in firebase functions
         name_lower: form.name.toLowerCase(),
         dateAdded: new Date().getTime(),
-        image: imageFile?.image?.file || product.imageUrl,
+        image: imageFile?.image?.file || product.image,
         imageCollection: imageFile.imageCollection
       });
     } else {
@@ -87,6 +117,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
       alert('Product thumbnail image is required.');
     }
   };
+
+  console.log(product.imageUrl);
 
   return (
     <div>
@@ -96,7 +128,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
         validationSchema={FormSchema}
         onSubmit={onSubmitForm}
       >
-        {({ values, setValues }) => (
+        {({ values, setValues, errors, touched }) => (
           <Form className="product-form">
             <div className="product-form-inputs">
               <div className="d-flex">
@@ -171,17 +203,90 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                 </div>
                 &nbsp;
                 <div className="product-form-field">
-                  <CustomCreatableSelect
-                    defaultValue={values.keywords.map((key) => ({ value: key, label: key }))}
-                    name="sizes"
-                    iid="sizes"
-                    isMulti
-                    disabled={isLoading}
-                    placeholder="Create/Select Sizes"
-                    label="* Sizes"
-                  />
+                  <label>Number of sizes</label>
+                  <Field
+                      disabled={isLoading}
+                      name="numberOfSizes"
+                      id="numberOfSizes"
+                      label="* Number of Sizes"
+                  >
+                  {({ field }) => (
+                      <select
+                          {...field}
+                          className={'form-control input-group' + (errors.numberOfTickets && touched.numberOfTickets ? ' is-invalid' : '')}
+                          onChange={e => onChangeSizes(e, field, values, setValues)}
+                      >
+                        <option value=""></option>
+                        {[1,2,3,4,5,6,7,8,9,10].map(i =>
+                            <option key={i} value={i}>{i}</option>
+                        )}
+                      </select>
+                  )}
+                  </Field>
                 </div>
               </div>
+              <FieldArray name='sizes'>
+                {
+                  () => (values.sizes.map((size, i) => {
+                    return (
+                        <div key={i} className="d-inline-flex">
+                          <div className="product-form-field size">
+                            <Field
+                                disabled={isLoading}
+                                name={`sizes.${i}.type`}
+                                type="text"
+                                id="type"
+                                label="* Size"
+                                component={CustomInput}
+                            />
+                          </div>
+                          &nbsp;
+                          <div className="product-form-field">
+                            <Field
+                                disabled={isLoading}
+                                name={`sizes.${i}.length`}
+                                type="number"
+                                id="length"
+                                label="Length (cm)"
+                                component={CustomInput}
+                            />
+                          </div>
+                          &nbsp;
+                          <div className="product-form-field">
+                            <Field
+                                disabled={isLoading}
+                                name={`sizes.${i}.hip`}
+                                type="number"
+                                id="hip"
+                                label="Hip size (cm)"
+                                component={CustomInput}
+                            />
+                          </div>
+                          &nbsp;
+                          <div className="product-form-field">
+                            <Field
+                                disabled={isLoading}
+                                name={`sizes.${i}.waist`}
+                                type="number"
+                                id="waist"
+                                label="Waist size (cm)"
+                                component={CustomInput}
+                            />
+                          </div>
+                          &nbsp;
+                          <div className="product-form-field">
+                            <Field
+                                disabled={isLoading}
+                                name={`sizes.${i}.body_height`}
+                                type="number"
+                                id="body_length"
+                                label="Fit with height (cm)"
+                                component={CustomInput}
+                            />
+                          </div>
+                        </div>
+                    )}))}
+              </FieldArray>
               <div className="product-form-field">
                 <FieldArray
                   name="availableColors"
@@ -277,7 +382,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                 </button>
               </div>
             </div>
-            {/* ----THUBMNAIL ---- */}
+            {/* ----THUMBNAIL ---- */}
             <div className="product-form-file">
               <div className="product-form-field">
                 <span className="d-block padding-s">* Thumbnail</span>

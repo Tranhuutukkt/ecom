@@ -107,17 +107,21 @@ function* productSaga({ type, payload }) {
 
         const { image, imageCollection } = payload.updates;
         let newUpdates = { ...payload.updates };
+        console.log(image);
 
-        if (image.constructor === File && typeof image === 'object') {
-          try {
-            yield call(firebase.deleteImage, payload.id);
-          } catch (e) {
-            console.error('Failed to delete image ', e);
+        if (image !== undefined){
+          if( image.constructor === File && typeof image === 'object') {
+            try {
+              yield call(firebase.deleteImage, payload.id);
+            } catch (e) {
+              console.error('Failed to delete image ', e);
+            }
+
+            const url = yield call(firebase.storeImage, payload.id, 'products', image);
+            newUpdates = { ...newUpdates, image: url };
           }
-
-          const url = yield call(firebase.storeImage, payload.id, 'products', image);
-          newUpdates = { ...newUpdates, image: url };
         }
+
 
         if (imageCollection.length > 1) {
           const existingUploads = [];
