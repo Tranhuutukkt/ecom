@@ -44,6 +44,30 @@ const EditForm = ({ isLoading, authProvider }) => {
         disabled={isLoading}
         label="Mobile Number (Will be used for checkout)"
       />
+        <Field
+            disabled={isLoading}
+            name="height"
+            type="number"
+            label="Your height (cm)"
+            placeholder="170"
+            component={CustomInput}
+        />
+        <Field
+            disabled={isLoading}
+            name="hip"
+            type="number"
+            label="Your hip size (cm)"
+            placeholder="80"
+            component={CustomInput}
+        />
+        <Field
+            disabled={isLoading}
+            name="waist"
+            type="number"
+            label="Your waist size (cm)"
+            placeholder="80"
+            component={CustomInput}
+        />
       <br />
       <div className="edit-user-action">
         <button

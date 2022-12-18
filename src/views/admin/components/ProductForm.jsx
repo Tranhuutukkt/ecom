@@ -41,7 +41,7 @@ const FormSchema = Yup.object().shape({
     .min(1, 'Please enter at least 1 keyword for this product.'),
   sizes: Yup.array()
     .of(Yup.string())
-    .min(1, 'Please enter a size for this product.'),
+    .min(1, 'Please enter at least a size for this product.'),
   isFeatured: Yup.boolean(),
   isRecommended: Yup.boolean(),
   availableColors: Yup.array()
@@ -178,7 +178,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     isMulti
                     disabled={isLoading}
                     placeholder="Create/Select Sizes"
-                    label="* Sizes (Millimeter)"
+                    label="* Sizes"
                   />
                 </div>
               </div>

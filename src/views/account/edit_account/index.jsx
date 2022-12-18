@@ -27,7 +27,12 @@ const FormSchema = Yup.object().shape({
       countryCode: Yup.string(),
       dialCode: Yup.string(),
       value: Yup.string()
-    })
+    }),
+  height: Yup.number()
+      .min(20)
+      .max(250),
+  hip: Yup.number(),
+  waist: Yup.number(),
 });
 
 const EditProfile = () => {
@@ -51,7 +56,10 @@ const EditProfile = () => {
     fullname: profile.fullname || '',
     email: profile.email || '',
     address: profile.address || '',
-    mobile: profile.mobile || {}
+    mobile: profile.mobile || {},
+    height: profile.height || '',
+    hip: profile.hip || '',
+    waist: profile.waist || '',
   };
 
   const {
@@ -68,7 +76,10 @@ const EditProfile = () => {
         address: form.address,
         mobile: form.mobile,
         avatar: profile.avatar,
-        banner: profile.banner
+        banner: profile.banner,
+        height: form.height,
+        hip: form.hip,
+        waist: form.waist,
       },
       files: {
         bannerFile: imageFile.banner.file,

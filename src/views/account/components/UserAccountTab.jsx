@@ -62,6 +62,27 @@ const UserProfile = (props) => {
           ) : (
             <h5 className="text-subtle text-italic">Not available</h5>
           )}
+          <br/>
+          <span>Your height: </span>
+          {profile.height ? (
+              <h5>{profile.height} cm</h5>
+          ) : (
+              <h5 className="text-subtle text-italic">Not available</h5>
+          )}
+          <br/>
+          <span>Your hip size: </span>
+          {profile.hip ? (
+              <h5>{profile.hip} cm</h5>
+          ) : (
+              <h5 className="text-subtle text-italic">Not available</h5>
+          )}
+          <br/>
+          <span>Your waist size: </span>
+          {profile.waist ? (
+              <h5>{profile.waist} cm</h5>
+          ) : (
+              <h5 className="text-subtle text-italic">Not available</h5>
+          )}
         </div>
       </div>
     </div>

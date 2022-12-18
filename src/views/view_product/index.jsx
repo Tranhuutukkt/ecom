@@ -47,7 +47,6 @@ const ViewProduct = () => {
     setSelectedSize(newValue.value);
     const sizeInfo = product.sizes.find(s => s.type === newValue.value);
     setSizeInfo(sizeInfo);
-    console.log(sizeInfo);
   };
 
   const onSelectedColorChange = (color) => {
@@ -142,12 +141,15 @@ const ViewProduct = () => {
                       }}
                     />
                     <br/>
-                    {Object.keys(sizeInfo).map(s => {
-                      if (s !== "type")
-                        return (
-                          <p key={s}>{s}: {sizeInfo[s]}cm</p>
-                        )
-                    })}
+                    <div>
+                      {sizeInfo && Object.keys(sizeInfo).map(s => {
+                        if (s !== "type")
+                          return (
+                              <p key={s}>{s}: {sizeInfo[s]}cm</p>
+                          )
+                      })}
+                    </div>
+
                   </div>
                   <br />
                   {product.availableColors.length >= 1 && (
