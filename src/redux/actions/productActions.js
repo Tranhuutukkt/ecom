@@ -10,7 +10,9 @@ import {
   REMOVE_PRODUCT,
   REMOVE_PRODUCT_SUCCESS,
   SEARCH_PRODUCT,
-  SEARCH_PRODUCT_SUCCESS
+  SEARCH_PRODUCT_SUCCESS,
+  GET_SUGGESTED_PRODUCT,
+  GET_SUGGESTED_PRODUCT_SUCCESS
 } from '@/constants/constants';
 
 export const getProducts = (lastRef) => ({
@@ -42,6 +44,22 @@ export const searchProduct = (searchKey) => ({
 export const searchProductSuccess = (products) => ({
   type: SEARCH_PRODUCT_SUCCESS,
   payload: products
+});
+
+export const getSuggestedProduct = (bodyMeasure) => {
+  return {
+    type: GET_SUGGESTED_PRODUCT,
+    payload: {
+      bodyMeasure
+    }
+  };
+};
+
+export const getSuggestedProductSuccess = (product) => ({
+  type: GET_SUGGESTED_PRODUCT_SUCCESS,
+  payload: {
+    product
+  }
 });
 
 export const clearSearchState = () => ({

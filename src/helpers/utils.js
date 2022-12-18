@@ -64,3 +64,8 @@ export const displayActionMessage = (msg, status = 'info') => {
     }
   }, 3000);
 };
+
+export const inRange = (value, base, limit) => {
+  // console.log(value, base, limit, value <= base + limit && value >= base - limit);
+  return value <= base + limit && value >= base - limit;
+};

@@ -2,7 +2,8 @@ import {
   ADD_PRODUCT_SUCCESS,
   CLEAR_SEARCH_STATE, EDIT_PRODUCT_SUCCESS,
   GET_PRODUCTS_SUCCESS, REMOVE_PRODUCT_SUCCESS,
-  SEARCH_PRODUCT_SUCCESS
+  SEARCH_PRODUCT_SUCCESS,
+  GET_SUGGESTED_PRODUCT_SUCCESS
 } from '@/constants/constants';
 
 const initState = {
@@ -62,6 +63,11 @@ export default (state = {
           return product;
         })
       };
+    case GET_SUGGESTED_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        suggestedProduct: action.payload.product
+      }
     default:
       return state;
   }

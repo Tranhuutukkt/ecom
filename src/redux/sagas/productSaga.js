@@ -4,7 +4,8 @@ import {
   EDIT_PRODUCT,
   GET_PRODUCTS,
   REMOVE_PRODUCT,
-  SEARCH_PRODUCT
+  SEARCH_PRODUCT,
+  GET_SUGGESTED_PRODUCT
 } from '@/constants/constants';
 import { ADMIN_PRODUCTS } from '@/constants/routes';
 import { displayActionMessage } from '@/helpers/utils';
@@ -18,7 +19,8 @@ import {
   addProductSuccess,
   clearSearchState, editProductSuccess, getProductsSuccess,
   removeProductSuccess,
-  searchProductSuccess
+  searchProductSuccess,
+  getSuggestedProductSuccess
 } from '../actions/productActions';
 
 function* initRequest() {
@@ -197,6 +199,17 @@ function* productSaga({ type, payload }) {
           }));
           yield put(setRequestStatus(''));
         }
+        yield put(setLoading(false));
+      } catch (e) {
+        yield handleError(e);
+      }
+      break;
+    }
+    case GET_SUGGESTED_PRODUCT: {
+      try {
+        yield initRequest();
+        const result = yield call(firebase.getSuggestedProductsByProfile, payload.bodyMeasure);
+        yield put(getSuggestedProductSuccess(result));
         yield put(setLoading(false));
       } catch (e) {
         yield handleError(e);

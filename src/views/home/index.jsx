@@ -1,18 +1,24 @@
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { MessageDisplay } from '@/components/common';
 import { ProductShowcaseGrid } from '@/components/product';
-import { FEATURED_PRODUCTS, RECOMMENDED_PRODUCTS, SHOP } from '@/constants/routes';
+import { FEATURED_PRODUCTS, RECOMMENDED_PRODUCTS, SHOP, SUGGESTED_PRODUCTS } from '@/constants/routes';
 import {
   useDocumentTitle, useFeaturedProducts, useRecommendedProducts, useScrollTop, useProduct
 } from '@/hooks';
 import bannerImg from '@/images/fashionabler.png';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getSuggestedProduct } from '@/redux/actions/productActions';
 
 
 const Home = () => {
+  const dispatch = useDispatch();
   useDocumentTitle('TetouShopping | Home');
   useScrollTop();
+  const profile = useSelector((state) => state.profile);
+  const suggestedProduct = useSelector((state) => state.products.suggestedProduct);
 
   const {
     featuredProducts,
@@ -26,6 +32,10 @@ const Home = () => {
     isLoading: isLoadingRecommended,
     error: errorRecommended
   } = useRecommendedProducts(6);
+
+  useEffect(() => {
+    dispatch(getSuggestedProduct({height: profile.height, waist: profile.waist, hip: profile.hip}), 6);
+  }, []);
 
   return (
     <main className="content">
@@ -68,6 +78,19 @@ const Home = () => {
         {/*    />*/}
         {/*  )}*/}
         {/*</div>*/}
+        {
+          suggestedProduct && suggestedProduct.length !== 0 &&
+          <div className="display">
+            <div className="display-header">
+              <h1>あなたに似合う</h1>
+              <Link to={SUGGESTED_PRODUCTS}>すべてを見る</Link>
+            </div>
+            <ProductShowcaseGrid
+              products={suggestedProduct}
+              skeletonCount={6}
+            />
+          </div>
+        }
         <div className="display">
           <div className="display-header">
             <h1>商品</h1>

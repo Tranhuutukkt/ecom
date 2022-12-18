@@ -2,6 +2,7 @@ import app from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
+import { inRange } from "@/helpers/utils";
 import firebaseConfig from "./config";
 
 class Firebase {
@@ -252,6 +253,27 @@ class Firebase {
       .limit(itemsCount)
       .get();
 
+  getSuggestedProductsByProfile = async (bodyMeasure = {}, itemsCount = 50) => {
+    console.log(bodyMeasure);
+    const result = await this.db
+                          .collection("products")
+                          .limit(itemsCount)
+                          .get();
+
+    const data = [];
+
+    result.forEach(doc => data.push({ id: doc.id, ...doc.data() }));
+
+    return data.filter(doc =>
+      doc.sizes ?
+      doc.sizes.some(size =>
+        inRange(size.waist, bodyMeasure.waist, 20) &&
+        inRange(size.hip, bodyMeasure.hip, 20) &&
+        inRange(size.body_height, bodyMeasure.height, 20)
+      ) : false
+    );
+  }
+
   addProduct = (id, product) =>
     this.db.collection("products").doc(id).set(product);
 
@@ -278,6 +300,7 @@ class Firebase {
 
   getReviews = async (productID) => {
     const data = await this.db.collection("reviews").where("productID", "==", productID).limit(50).get();
+    console.log(data);
     const reviews = [];
     data.forEach((doc) =>
       reviews.push({ id: doc.id, ...doc.data() })
