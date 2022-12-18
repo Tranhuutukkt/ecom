@@ -28,9 +28,9 @@ const ViewProduct = () => {
 
   const [selectedImage, setSelectedImage] = useState(product?.image || "");
   const [selectedSize, setSelectedSize] = useState("");
+  const [sizeInfo, setSizeInfo] = useState({});
   const [selectedColor, setSelectedColor] = useState("");
-  const viewList = firebase.getReview(id);
-  console.log(viewList);
+
   const {
     recommendedProducts,
     fetchRecommendedProducts,
@@ -45,6 +45,9 @@ const ViewProduct = () => {
 
   const onSelectedSizeChange = (newValue) => {
     setSelectedSize(newValue.value);
+    const sizeInfo = product.sizes.find(s => s.type === newValue.value);
+    setSizeInfo(sizeInfo);
+    console.log(sizeInfo);
   };
 
   const onSelectedColorChange = (color) => {
@@ -133,11 +136,18 @@ const ViewProduct = () => {
                       onChange={onSelectedSizeChange}
                       options={product.sizes
                         .sort((a, b) => (a < b ? -1 : 1))
-                        .map((size) => ({ label: `${size}`, value: size }))}
+                        .map((size) => ({ label: `${size.type}`, value: size.type }))}
                       styles={{
                         menu: (provided) => ({ ...provided, zIndex: 10 }),
                       }}
                     />
+                    <br/>
+                    {Object.keys(sizeInfo).map(s => {
+                      if (s !== "type")
+                        return (
+                          <p key={s}>{s}: {sizeInfo[s]}cm</p>
+                        )
+                    })}
                   </div>
                   <br />
                   {product.availableColors.length >= 1 && (
@@ -181,8 +191,7 @@ const ViewProduct = () => {
                   </div>
                 </div>
               </div>
-              <div className='product-modal-details'>
-                <div style={{ marginTop: "10rem" }}>
+              <div style={{ marginTop: "10rem" }}>
                 <div className="display-header">
                   <h1>Recommended</h1>
                   <Link to={RECOMMENDED_PRODUCTS}>See All</Link>
@@ -199,22 +208,21 @@ const ViewProduct = () => {
                     skeletonCount={3}
                   />
                 )}
+                </div>
               </div>
-            </div>
-            <div
-              style={{
-                float: "right",
-                width: "50rem",
-                height: "540px",
-                marginTop: "90px",
-                overflow: "auto",
-                border: "1px solid #E1E1E1",
-                backgroundColor: "#FFF",
-              }}
-            >
-              <ReviewsContainer />
-            </div>
-          </Fragment>
+              <div
+                  style={{
+                    float: "right",
+                    width: "50rem",
+                    height: "540px",
+                    marginTop: "90px",
+                    overflow: "auto",
+                    border: "1px solid #E1E1E1",
+                    backgroundColor: "#FFF",
+                  }}>
+                <ReviewsContainer/>
+              </div>
+            </Fragment>
         )}
       </main>
 
@@ -224,5 +232,7 @@ const ViewProduct = () => {
     </Fragment>
   );
 };
+
+
 
 export default ViewProduct;

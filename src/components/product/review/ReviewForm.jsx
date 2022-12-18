@@ -29,7 +29,7 @@ const ReviewForm = (props) => {
             border: "none",
             background: "none",
             padding: "0px",
-            fontFamily: "Times New Roman, Times, serif",
+            fontFamily: "Roboto, Helvetica, Arial, sans-serif",
             fontSize: "2rem",
           }}
         >

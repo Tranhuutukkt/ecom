@@ -34,9 +34,9 @@ const Home = () => {
         <div className="banner">
           <div className="banner-desc">
             <h1 className="text-thin">
-              <strong>作る</strong>
-              &nbsp;あなたが見える&nbsp;
-              <strong>より良い!</strong>
+              <strong>Make</strong>
+              &nbsp;you look&nbsp;
+              <strong>better!</strong>
             </h1>
             <p>
               {/* Buying clothes should leave you happy and good-looking, with money in your pocket. */}
@@ -44,7 +44,7 @@ const Home = () => {
             </p>
             <br />
             <Link to={SHOP} className="button">
-            今買う &nbsp;
+            買い物しましょう &nbsp;
               <ArrowRightOutlined />
             </Link>
           </div>

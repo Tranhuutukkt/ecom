@@ -21,6 +21,7 @@ export default function ReviewsContainer() {
 
   return (
     <Fragment>
+      <h3>レビュー</h3>
       {isLoading
         ? "Loading ..."
         : reviews.map((item, index) => <SingleReview key={index} reviewData={item}/>)}
