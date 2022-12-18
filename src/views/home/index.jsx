@@ -34,16 +34,17 @@ const Home = () => {
         <div className="banner">
           <div className="banner-desc">
             <h1 className="text-thin">
-              <strong>Make</strong>
-              &nbsp;you look&nbsp;
-              <strong>better!</strong>
+              <strong>作る</strong>
+              &nbsp;あなたが見える&nbsp;
+              <strong>より良い!</strong>
             </h1>
             <p>
-              Buying clothes should leave you happy and good-looking, with money in your pocket.
+              {/* Buying clothes should leave you happy and good-looking, with money in your pocket. */}
+              服を買うことで、あなたは幸せで見栄えがよくなり、お金をポケットに入れることができます.
             </p>
             <br />
             <Link to={SHOP} className="button">
-              Shop Now &nbsp;
+            今買う &nbsp;
               <ArrowRightOutlined />
             </Link>
           </div>
@@ -69,11 +70,11 @@ const Home = () => {
         {/*</div>*/}
         <div className="display">
           <div className="display-header">
-            <h1>All Products</h1>
-            <Link to={SHOP}>See All</Link>
+            <h1>商品</h1>
+            <Link to={SHOP}>すべてを見る</Link>
           </div>
           {
-          //   (errorRecommended && !isLoadingRecommended) ? (
+         //   (errorRecommended && !isLoadingRecommended) ? (
           //   <MessageDisplay
           //     message={errorRecommended}
           //     action={fetchRecommendedProducts}

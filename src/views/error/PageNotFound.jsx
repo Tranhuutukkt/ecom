@@ -7,14 +7,14 @@ const PageNotFound = ({ history }) => {
 
   return (
     <div className="page-not-found">
-      <h1>:( Page you are looking for doesn&apos;t exists.</h1>
+      <h1>:( お探しのページはありません&apos;存在します。</h1>
       <br />
       <button
         className="button"
         onClick={history.goBack}
         type="button"
       >
-        Go back
+        戻る
       </button>
     </div>
   );
