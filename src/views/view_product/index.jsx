@@ -16,6 +16,7 @@ import Select from "react-select";
 import { useModal } from "@/hooks";
 import { Modal } from "@/components/common";
 import ReviewForm from "@/components/product/review/ReviewForm";
+import firebase from "../../services/firebase";
 
 const ViewProduct = () => {
   const { id } = useParams();
@@ -28,7 +29,8 @@ const ViewProduct = () => {
   const [selectedImage, setSelectedImage] = useState(product?.image || "");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
-
+  const viewList = firebase.getReview(id);
+  console.log(viewList);
   const {
     recommendedProducts,
     fetchRecommendedProducts,
@@ -176,6 +178,10 @@ const ViewProduct = () => {
                     Write review
                   </button>
                 </div>
+              </div>
+              <div className='product-modal-details'>
+                <h3>Review</h3>
+
               </div>
             </div>
             <div style={{ marginTop: "10rem" }}>

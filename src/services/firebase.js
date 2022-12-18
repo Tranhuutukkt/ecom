@@ -148,7 +148,7 @@ class Firebase {
             const query = this.db
               .collection("products")
               .orderBy(app.firestore.FieldPath.documentId())
-              .limit(12);
+              .limit(6);
             const snapshot = await query.get();
 
             clearTimeout(timeout);
@@ -273,6 +273,10 @@ class Firebase {
 
   addReview = async (productID, review) =>
     await this.db.collection("reviews").add({ userID: this.auth.currentUser.uid, productID, comment: review });
+
+  getReview = (productID) => {
+    this.db.collection("reviews");
+  }
 }
 
 const firebaseInstance = new Firebase();
