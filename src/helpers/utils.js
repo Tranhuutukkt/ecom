@@ -16,7 +16,7 @@ export const displayDate = (timestamp) => {
 };
 
 export const displayMoney = (n) => {
-  const format = new Intl.NumberFormat('en-US', {
+  const format = new Intl.NumberFormat('vi-VN', {
     style: 'currency',
     currency: 'VND'
   });

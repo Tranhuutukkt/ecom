@@ -11,6 +11,7 @@ import withCheckout from '../hoc/withCheckout';
 import CreditPayment from './CreditPayment';
 import PayPalPayment from './PayPalPayment';
 import Total from './Total';
+import Cash from "@/views/checkout/step3/Cash";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
@@ -66,6 +67,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
           <Form className="checkout-step-3">
             <CreditPayment />
             <PayPalPayment />
+            <Cash/>
             <Total
               isInternational={shipping.isInternational}
               subtotal={subtotal}

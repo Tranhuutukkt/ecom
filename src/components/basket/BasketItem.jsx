@@ -38,8 +38,6 @@ const BasketItem = ({ product }) => {
               <span className="spec-title">Size</span>
               <h5 className="my-0">
                 {product.selectedSize}
-                {' '}
-                mm
               </h5>
             </div>
             <div>

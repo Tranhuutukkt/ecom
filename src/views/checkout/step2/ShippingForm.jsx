@@ -70,10 +70,10 @@ const ShippingForm = () => {
                   />
                   <label className="d-flex w-100" htmlFor={field.name}>
                     <h5 className="d-flex-grow-1 margin-0">
-                      &nbsp; International Shipping &nbsp;
-                      <span className="text-subtle">7-14 days</span>
+                      &nbsp; Fast Shipping &nbsp;
+                      <span className="text-subtle">2-3 days</span>
                     </h5>
-                    <h4 className="margin-0">$50.00</h4>
+                    <h4 className="margin-0">50.000</h4>
                   </label>
                 </div>
               </div>

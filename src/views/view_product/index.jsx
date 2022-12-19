@@ -61,7 +61,7 @@ const ViewProduct = () => {
     addToBasket({
       ...product,
       selectedColor,
-      selectedSize: selectedSize || product.sizes[0],
+      selectedSize: selectedSize || product.sizes[0].type,
     });
   };
 
