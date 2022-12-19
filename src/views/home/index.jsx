@@ -49,12 +49,12 @@ const Home = () => {
               <strong>better!</strong>
             </h1>
             <p>
-              {/* Buying clothes should leave you happy and good-looking, with money in your pocket. */}
-              服を買うことで、あなたは幸せで見栄えがよくなり、お金をポケットに入れることができます.
+               Buying clothes should leave you happy and good-looking, with money in your pocket.
+              {/*服を買うことで、あなたは幸せで見栄えがよくなり、お金をポケットに入れることができます.*/}
             </p>
             <br />
             <Link to={SHOP} className="button">
-            買い物しましょう &nbsp;
+            Shop now &nbsp;
               <ArrowRightOutlined />
             </Link>
           </div>
@@ -82,8 +82,8 @@ const Home = () => {
           suggestedProduct && suggestedProduct.length !== 0 &&
           <div className="display">
             <div className="display-header">
-              <h1>あなたに似合う</h1>
-              <Link to={SUGGESTED_PRODUCTS}>すべてを見る</Link>
+              <h1>Products for you</h1>
+              <Link to={SUGGESTED_PRODUCTS}>See all...</Link>
             </div>
             <ProductShowcaseGrid
               products={suggestedProduct}
@@ -93,8 +93,8 @@ const Home = () => {
         }
         <div className="display">
           <div className="display-header">
-            <h1>商品</h1>
-            <Link to={SHOP}>すべてを見る</Link>
+            <h1>All products</h1>
+            <Link to={SHOP}>See all...</Link>
           </div>
           {
          //   (errorRecommended && !isLoadingRecommended) ? (

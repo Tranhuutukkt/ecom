@@ -20,7 +20,7 @@ const RecommendedProducts = () => {
       <div className="featured">
         <div className="banner">
           <div className="banner-desc">
-            <h1>おすすめ商品</h1>
+            <h1>Recommended Products</h1>
           </div>
           <div className="banner-img">
             <img src={bannerImg} alt="" />

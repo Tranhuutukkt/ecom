@@ -29,7 +29,7 @@ const SocialLogin = ({ isLoading }) => {
       >
         {/* <i className="fab fa-facebook" /> */}
         <FacebookOutlined />
-        Facebookで続行
+        Continue with Facebook
       </button>
       <button
         className="button auth-provider-button provider-google"
@@ -38,7 +38,7 @@ const SocialLogin = ({ isLoading }) => {
         type="button"
       >
         <GoogleOutlined />
-        Google で続行
+        Continue with Google
       </button>
       <button
         className="button auth-provider-button provider-github"
@@ -47,7 +47,7 @@ const SocialLogin = ({ isLoading }) => {
         type="button"
       >
         <GithubFilled />
-        GitHub で続行
+        Continue with Github
       </button>
     </div>
   );
