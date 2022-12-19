@@ -15,7 +15,6 @@ const Shop = () => {
     requestStatus: state.app.requestStatus,
     isLoading: state.app.loading
   }), shallowEqual);
-  console.log(store);
 
   return (
     <main className="content">

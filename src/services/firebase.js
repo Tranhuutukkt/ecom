@@ -254,7 +254,7 @@ class Firebase {
       .get();
 
   getSuggestedProductsByProfile = async (bodyMeasure = {}, itemsCount = 50) => {
-    console.log(bodyMeasure);
+    // console.log(bodyMeasure);
     const result = await this.db
                           .collection("products")
                           .limit(itemsCount)
@@ -300,13 +300,13 @@ class Firebase {
 
   getReviews = async (productID) => {
     const data = await this.db.collection("reviews").where("productID", "==", productID).limit(50).get();
-    console.log(data);
+    // console.log(data);
     const reviews = [];
     data.forEach((doc) =>
       reviews.push({ id: doc.id, ...doc.data() })
     );
     
-    console.log(reviews);
+    // console.log(reviews);
     return reviews;
   }
 }

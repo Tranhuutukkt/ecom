@@ -1,7 +1,7 @@
 import { ArrowLeftOutlined, LoadingOutlined } from "@ant-design/icons";
 import { ColorChooser, ImageLoader, MessageDisplay } from "@/components/common";
 import { ProductShowcaseGrid } from "@/components/product";
-import { RECOMMENDED_PRODUCTS, SHOP } from "@/constants/routes";
+import {ACCOUNT_EDIT, RECOMMENDED_PRODUCTS, SHOP} from "@/constants/routes";
 import { displayMoney } from "@/helpers/utils";
 import {
   useBasket,
@@ -11,21 +11,22 @@ import {
   useScrollTop,
 } from "@/hooks";
 import React, { Fragment, useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {Link, useHistory, useParams} from "react-router-dom";
 import Select from "react-select";
 import { useModal } from "@/hooks";
 import { Modal } from "@/components/common";
 import ReviewForm from "@/components/product/review/ReviewForm";
 import ReviewsContainer from "@/components/product/review/ReviewsContainer";
+import SuggestSize from "@/views/view_product/suggestSize";
 
 const ViewProduct = () => {
+  const history = useHistory();
   const { id } = useParams();
   const { product, isLoading, error } = useProduct(id);
   const { addToBasket, isItemOnBasket } = useBasket(id);
   const { isOpenModal, onOpenModal, onCloseModal } = useModal();
   useScrollTop();
   useDocumentTitle(`View ${product?.name || "Item"}`);
-
   const [selectedImage, setSelectedImage] = useState(product?.image || "");
   const [selectedSize, setSelectedSize] = useState("");
   const [sizeInfo, setSizeInfo] = useState({});
@@ -128,13 +129,22 @@ const ViewProduct = () => {
                   <br />
                   <div>
                     <span className="text-subtle">Size</span>
+                    <button
+                        style={{ float: "right" }}
+                        className={`button button-small button-border button-border-gray`}
+                        type="button"
+                        onClick={() => history.push(ACCOUNT_EDIT)}
+                    >
+                      Edit measure
+                    </button>
+                    <SuggestSize/>
                     <br />
                     <br />
                     <Select
                       placeholder="--Select Size--"
                       onChange={onSelectedSizeChange}
                       options={product.sizes
-                        .sort((a, b) => (a < b ? -1 : 1))
+                        .sort((a, b) => (a.body_height < b.body_height ? -1 : 1))
                         .map((size) => ({ label: `${size.type}`, value: size.type }))}
                       styles={{
                         menu: (provided) => ({ ...provided, zIndex: 10 }),
@@ -142,6 +152,7 @@ const ViewProduct = () => {
                     />
                     <br/>
                     <div>
+                      Size Information:<br/>
                       {sizeInfo && Object.keys(sizeInfo).map(s => {
                         if (s !== "type")
                           return (
