@@ -83,6 +83,13 @@ const UserProfile = (props) => {
           ) : (
               <h5 className="text-subtle text-italic">Not available</h5>
           )}
+          <br/>
+          <span>Your chest size: </span>
+          {profile.chest ? (
+              <h5>{profile.chest} cm</h5>
+          ) : (
+              <h5 className="text-subtle text-italic">Not available</h5>
+          )}
         </div>
       </div>
     </div>

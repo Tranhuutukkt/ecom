@@ -16,7 +16,7 @@ const SuggestedProducts = () => {
   const suggestedProduct = useSelector((state) => state.products.suggestedProduct);
 
   useEffect(() => {
-    dispatch(getSuggestedProduct({height: profile.height, waist: profile.waist, hip: profile.hip}), 6);
+    dispatch(getSuggestedProduct({height: profile.height, waist: profile.waist, hip: profile.hip, chest: profile.chest}), 6);
   }, []);
 
   return (

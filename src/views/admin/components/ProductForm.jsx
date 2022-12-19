@@ -48,6 +48,7 @@ const FormSchema = Yup.object().shape({
           length: Yup.number(),
           hip: Yup.number(),
           waist: Yup.number(),
+          chest: Yup.number(),
           body_height: Yup.number(),
           })),
   isFeatured: Yup.boolean(),
@@ -64,7 +65,7 @@ function onChangeSizes(e, field, values, setValues) {
 
   if (previousNumber < numberOfSizes) {
     for (let i = previousNumber; i < numberOfSizes; i++) {
-      sizes.push({ type: '', length: 0, hip: 0, waist: 0, body_height: 0});
+      sizes.push({ type: '', length: 0, hip: 0, waist: 0, body_height: 0, chest: 0});
     }
   } else {
     for (let i = previousNumber; i >= numberOfSizes; i--) {
@@ -270,6 +271,17 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                                 type="number"
                                 id="waist"
                                 label="Waist size (cm)"
+                                component={CustomInput}
+                            />
+                          </div>
+                          &nbsp;
+                          <div className="product-form-field">
+                            <Field
+                                disabled={isLoading}
+                                name={`sizes.${i}.chest`}
+                                type="number"
+                                id="chest"
+                                label="Chest size (cm)"
                                 component={CustomInput}
                             />
                           </div>

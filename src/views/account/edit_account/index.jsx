@@ -33,6 +33,7 @@ const FormSchema = Yup.object().shape({
       .max(250),
   hip: Yup.number(),
   waist: Yup.number(),
+  chest: Yup.number(),
 });
 
 const EditProfile = () => {
@@ -60,6 +61,7 @@ const EditProfile = () => {
     height: profile.height || '',
     hip: profile.hip || '',
     waist: profile.waist || '',
+    chest: profile.chest || '',
   };
 
   const {
@@ -80,6 +82,7 @@ const EditProfile = () => {
         height: form.height,
         hip: form.hip,
         waist: form.waist,
+        chest: form.chest,
       },
       files: {
         bannerFile: imageFile.banner.file,

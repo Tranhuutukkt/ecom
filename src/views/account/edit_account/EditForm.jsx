@@ -68,6 +68,14 @@ const EditForm = ({ isLoading, authProvider }) => {
             placeholder="80"
             component={CustomInput}
         />
+        <Field
+            disabled={isLoading}
+            name="chest"
+            type="number"
+            label="Your chest size (cm)"
+            placeholder="80"
+            component={CustomInput}
+        />
       <br />
       <div className="edit-user-action">
         <button

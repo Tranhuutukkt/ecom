@@ -269,7 +269,8 @@ class Firebase {
       doc.sizes.some(size =>
         inRange(size.waist, bodyMeasure.waist, 20) &&
         inRange(size.hip, bodyMeasure.hip, 20) &&
-        inRange(size.body_height, bodyMeasure.height, 20)
+        inRange(size.body_height, bodyMeasure.height, 20) &&
+          inRange(size.chest, bodyMeasure.chest, 20)
       ) : false
     );
   }
