@@ -32,10 +32,14 @@ const ProductsTable = ({ filteredProducts }) => (
         product={product}
       />
     )) : filteredProducts.map((product) => (
-      <ProductItem
-        key={product.id}
-        product={product}
-      />
+        <div key={product.id}>
+          <ProductItem
+              key={product.id}
+              product={product}
+          />
+          <br/>
+        </div>
+
     ))}
   </div>
 );

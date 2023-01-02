@@ -28,11 +28,11 @@ const SearchBar = () => {
       e.target.blur();
       searchbarRef.current.classList.remove('is-open-recent-search');
 
-      if (isMobile) {
-        history.push('/');
-      }
-
-      history.push(`/search/${searchInput.trim().toLowerCase()}`);
+      // if (isMobile) {
+      //   history.push('/');
+      // }
+      //
+      // history.push(`/search/${searchInput.trim().toLowerCase()}`);
     }
   };
 
@@ -57,7 +57,7 @@ const SearchBar = () => {
   const onClickRecentSearch = (keyword) => {
     // dispatch(setTextFilter(keyword));
     searchbarRef.current.classList.remove('is-open-recent-search');
-    history.push(`/search/${keyword.trim().toLowerCase()}`);
+    //history.push(`/search/${keyword.trim().toLowerCase()}`);
   };
 
   const onClearRecent = () => {

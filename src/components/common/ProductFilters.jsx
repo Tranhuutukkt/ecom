@@ -8,7 +8,7 @@ import { applyFilter, resetFilter } from '@/redux/actions/filterActions';
 import { selectMax, selectMin } from '@/selectors/selector';
 import PriceRange from './PriceRange';
 
-const Filters = ({ closeModal }) => {
+const ProductFilters = ({ closeModal }) => {
   const { filter, isLoading, products } = useSelector((state) => ({
     filter: state.filter,
     isLoading: state.app.loading,
@@ -93,10 +93,9 @@ const Filters = ({ closeModal }) => {
             onChange={onBrandFilterChange}
           >
             <option value="">All Brands</option>
-            <option value="salt">Salt Maalat</option>
-            <option value="betsin">Betsin Maalat</option>
-            <option value="black">Black Kibal</option>
-            <option value="sexbomb">Sexbomb</option>
+            <option value="uniqlo">UNIQLO</option>
+            <option value="gucci">GUCCI</option>
+            <option value="nike">NIKE</option>
           </select>
         )}
       </div>
@@ -159,8 +158,8 @@ const Filters = ({ closeModal }) => {
   );
 };
 
-Filters.propTypes = {
+ProductFilters.propTypes = {
   closeModal: PropType.func.isRequired
 };
 
-export default withRouter(Filters);
+export default withRouter(ProductFilters);

@@ -10,7 +10,7 @@ import {
 import UserAvatar from '@/views/account/components/UserAvatar';
 import BasketToggle from '../basket/BasketToggle';
 import Badge from './Badge';
-import FiltersToggle from './FiltersToggle';
+import ProductFiltersToggle from './ProductFiltersToggle';
 import MobileNavigation from './MobileNavigation';
 import SearchBar from './SearchBar';
 
@@ -84,12 +84,12 @@ const Navigation = () => {
         
       </ul>
       {(pathname === ROUTE.SHOP || pathname === ROUTE.SEARCH) && (
-        <FiltersToggle>
+        <ProductFiltersToggle>
           <button className="button-muted button-small" type="button">
           Filter &nbsp;
             <FilterOutlined />
           </button>
-        </FiltersToggle>
+        </ProductFiltersToggle>
       )}
       {<SearchBar />}
       <ul className="navigation-menu">
