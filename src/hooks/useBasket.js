@@ -1,6 +1,6 @@
 import { displayActionMessage } from '@/helpers/utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToBasket as dispatchAddToBasket, removeFromBasket } from '@/redux/actions/basketActions';
+import { addToBasket as dispatchAddToBasket, removeFromBasket, clearBasket } from '@/redux/actions/basketActions';
 
 const useBasket = () => {
   const { basket } = useSelector((state) => ({ basket: state.basket }));
@@ -18,7 +18,11 @@ const useBasket = () => {
     }
   };
 
-  return { basket, isItemOnBasket, addToBasket };
+  const resetBasket = () => {
+    dispatch(clearBasket());
+  }
+
+  return { basket, isItemOnBasket, addToBasket, resetBasket };
 };
 
 export default useBasket;

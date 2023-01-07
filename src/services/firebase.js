@@ -4,6 +4,7 @@ import "firebase/firestore";
 import "firebase/storage";
 import { inRange } from "@/helpers/utils";
 import firebaseConfig from "./config";
+import { calculateTotal } from '@/helpers/utils';
 
 class Firebase {
   constructor() {
@@ -256,9 +257,9 @@ class Firebase {
   getSuggestedProductsByProfile = async (bodyMeasure = {}, itemsCount = 50) => {
     // console.log(bodyMeasure);
     const result = await this.db
-                          .collection("products")
-                          .limit(itemsCount)
-                          .get();
+      .collection("products")
+      .limit(itemsCount)
+      .get();
 
     const data = [];
 
@@ -266,12 +267,12 @@ class Firebase {
 
     return data.filter(doc =>
       doc.sizes ?
-      doc.sizes.some(size =>
-        inRange(size.waist, bodyMeasure.waist, 20) &&
-        inRange(size.hip, bodyMeasure.hip, 20) &&
-        inRange(size.body_height, bodyMeasure.height, 20) &&
+        doc.sizes.some(size =>
+          inRange(size.waist, bodyMeasure.waist, 20) &&
+          inRange(size.hip, bodyMeasure.hip, 20) &&
+          inRange(size.body_height, bodyMeasure.height, 20) &&
           inRange(size.chest, bodyMeasure.chest, 20)
-      ) : false
+        ) : false
     );
   }
 
@@ -306,9 +307,40 @@ class Firebase {
     data.forEach((doc) =>
       reviews.push({ id: doc.id, ...doc.data() })
     );
-    
+
     // console.log(reviews);
     return reviews;
+  }
+
+  createOrder = async (products) => {
+    try {
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+
+      today = mm + ' - ' + dd + ' - ' + yyyy;
+      return await this.db.collection("orders").add({ userID: this.auth.currentUser.uid, products, createdAt: today });
+      // total: calculateTotal(products.map((product) => product.price * product.quantity))
+    } catch (error) {
+      console.log("error");
+      return null
+    }
+  }
+
+  getOrderHistory = async () => {
+    try {
+      const data = await this.db.collection("orders").where("userID", "==", this.auth.currentUser.uid).limit(50).get();
+
+      const orders = [];
+      data.forEach((doc) =>
+        orders.push({ id: doc.id, ...doc.data() })
+      );
+      return orders
+    } catch (error) {
+      console.log("error");
+      return null
+    }
   }
 }
 
