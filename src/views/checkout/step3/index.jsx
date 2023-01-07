@@ -58,7 +58,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
         validationSchema={FormSchema}
         validate={(form) => {
           if (form.type === 'paypal') {
-            displayActionMessage('Feature not ready yet :)', 'info');
+            displayActionMessage('Your action is being performed!', 'info');
           }
         }}
         onSubmit={onConfirm}
