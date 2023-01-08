@@ -110,6 +110,42 @@ class Firebase {
   setAuthPersistence = () =>
     this.auth.setPersistence(app.auth.Auth.Persistence.LOCAL);
 
+  // // ADMIN USER ACTIONS --------------
+  getAllUsers = () => {
+    let didTimeout = false;
+
+    return new Promise((resolve, reject) => {
+      (async () => {
+        const timeout = setTimeout(() => {
+          didTimeout = true;
+          reject(new Error("Request timeout, please try again"));
+        }, 15000);
+
+        try {
+            const totalQuery = await this.db.collection("users").get();
+            const total = totalQuery.docs.length;
+            const query = this.db
+                .collection("users")
+                .orderBy(app.firestore.FieldPath.documentId());
+            const snapshot = await query.get();
+
+            clearTimeout(timeout);
+            if (!didTimeout) {
+              const users = [];
+              snapshot.forEach((doc) =>
+                  users.push({ id: doc.id, ...doc.data() })
+              );
+
+              resolve({ users, total });
+            }
+          } catch (e) {
+            if (didTimeout) return;
+            reject(e?.message || ":( Failed to fetch users.");
+          }
+      })();
+    });
+  }
+
   // // PRODUCT ACTIONS --------------
 
   getSingleProduct = (id) => this.db.collection("products").doc(id).get();
@@ -125,7 +161,7 @@ class Firebase {
               .collection("products")
               .orderBy(app.firestore.FieldPath.documentId())
               .startAfter(lastRefKey)
-              .limit(12);
+              .limit(6);
 
             const snapshot = await query.get();
             const products = [];

@@ -8,6 +8,7 @@ import * as view from '@/views';
 import AdminRoute from './AdminRoute';
 import ClientRoute from './ClientRoute';
 import PublicRoute from './PublicRoute';
+import UserInfo from "@/views/admin/components/UserInfo";
 
 // Revert back to history v4.10.0 because
 // v5.0 breaks navigation
@@ -98,8 +99,21 @@ const AppRouter = () => (
           path={ROUTES.ADMIN_PRODUCTS}
         />
         <AdminRoute
+            component={view.Users}
+            path={ROUTES.ADMIN_USERS}
+        />
+        <AdminRoute
           component={view.AddProduct}
           path={ROUTES.ADD_PRODUCT}
+        />
+        <AdminRoute
+            component={view.Users}
+            path={ROUTES.ADMIN_USERS}
+        />
+        <AdminRoute
+            render={user => <UserInfo user={user}/>}
+            exact
+            path={`${ROUTES.VIEW_USER}/:id`}
         />
         <AdminRoute
           component={view.EditProduct}

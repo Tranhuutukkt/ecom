@@ -1,5 +1,5 @@
 import {
-  ADD_USER,
+  ADD_USER, GET_ALL_USER,
 
   DELETE_USER, EDIT_USER, GET_USER, REGISTER_USER
 } from '@/constants/constants';
@@ -13,6 +13,10 @@ export const registerUser = (user) => ({
 export const getUser = (uid) => ({
   type: GET_USER,
   payload: uid
+});
+
+export const getAllUser = () => ({
+  type: GET_ALL_USER,
 });
 
 // different from registerUser -- only inserted in admins' users array not in profile array

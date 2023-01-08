@@ -3,6 +3,7 @@ import { takeLatest } from 'redux-saga/effects';
 import authSaga from './authSaga';
 import productSaga from './productSaga';
 import profileSaga from './profileSaga';
+import userSaga from "@/redux/sagas/userSaga";
 
 function* rootSaga() {
   yield takeLatest([
@@ -26,6 +27,9 @@ function* rootSaga() {
     ACTION.GET_PRODUCTS,
     ACTION.GET_SUGGESTED_PRODUCT
   ], productSaga);
+  yield takeLatest([
+      ACTION.GET_ALL_USER,
+  ], userSaga);
   yield takeLatest([
     ACTION.UPDATE_EMAIL,
     ACTION.UPDATE_PROFILE

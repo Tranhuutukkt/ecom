@@ -5,7 +5,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import UserNav from '@/views/account/components/UserAvatar';
 import Badge from './Badge';
-import FiltersToggle from './FiltersToggle';
+import ProductFiltersToggle from './ProductFiltersToggle';
 import SearchBar from './SearchBar';
 
 const Navigation = (props) => {
@@ -66,11 +66,11 @@ const Navigation = (props) => {
       </div>
       <div className="mobile-navigation-sec">
         <SearchBar />
-        <FiltersToggle>
+        <ProductFiltersToggle>
           <button className="button-link button-small" type="button">
             <i className="fa fa-filter" />
           </button>
-        </FiltersToggle>
+        </ProductFiltersToggle>
       </div>
     </nav>
   );

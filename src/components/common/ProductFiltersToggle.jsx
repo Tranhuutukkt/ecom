@@ -1,10 +1,10 @@
 import { useModal } from '@/hooks';
 import PropType from 'prop-types';
 import React from 'react';
-import Filters from './Filters';
+import Filters from './ProductFilters';
 import Modal from './Modal';
 
-const FiltersToggle = ({ children }) => {
+const ProductFiltersToggle = ({ children }) => {
   const { isOpenModal, onOpenModal, onCloseModal } = useModal();
 
   return (
@@ -35,11 +35,11 @@ const FiltersToggle = ({ children }) => {
   );
 };
 
-FiltersToggle.propTypes = {
+ProductFiltersToggle.propTypes = {
   children: PropType.oneOfType([
     PropType.arrayOf(PropType.node),
     PropType.node
   ]).isRequired
 };
 
-export default FiltersToggle;
+export default ProductFiltersToggle;
