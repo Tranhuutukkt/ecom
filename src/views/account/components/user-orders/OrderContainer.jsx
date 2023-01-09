@@ -2,13 +2,13 @@ import { Fragment } from "react";
 import ProductInOrder from "./ProductInOrder";
 import { calculateTotal } from "@/helpers/utils";
 import { displayMoney } from "@/helpers/utils";
+import OrderDetail from "@/views/account/components/user-orders/OrderDetail";
 
 export default function OrderContainer({ order }) {
   return (
     <div
       style={{
         width: "100%",
-        height: "16rem",
         backgroundColor: "white",
         border: "1px solid #E1E1E1",
         marginBottom: "1rem",
@@ -45,9 +45,14 @@ export default function OrderContainer({ order }) {
         }}
       >
         {order.products.map((item, index) => (
-          <ProductInOrder product={item} key={index} />
+            <div key={index}>
+                <ProductInOrder product={item} /><br/>
+            </div>
+
         ))}
       </div>
+        <OrderDetail order={order}/>
+
     </div>
   );
 }

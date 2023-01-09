@@ -348,15 +348,19 @@ class Firebase {
     return reviews;
   }
 
-  createOrder = async (products) => {
+  createOrder = async (products, shipping, payment) => {
     try {
       let today = new Date();
       let dd = String(today.getDate()).padStart(2, '0');
       let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
       let yyyy = today.getFullYear();
+      let hh = today.getHours();
+      let mn = today.getMinutes();
 
-      today = mm + ' - ' + dd + ' - ' + yyyy;
-      return await this.db.collection("orders").add({ userID: this.auth.currentUser.uid, products, createdAt: today });
+      today = hh + ':' + mn + ' ' + mm + ' - ' + dd + ' - ' + yyyy;
+      return await this.db.collection("orders")
+          //status: 0-cancel, 1-confirming, 2-confirmed, 3-delivering, 4-successfully, 5-failed
+          .add({ userID: this.auth.currentUser.uid, products, createdAt: today, status: 1, shipping, payment});
       // total: calculateTotal(products.map((product) => product.price * product.quantity))
     } catch (error) {
       console.log("error");
@@ -364,15 +368,46 @@ class Firebase {
     }
   }
 
+  addReturn = async (returns) => {
+    try {
+      return await this.db.collection("returns")
+          .add({userID: this.auth.currentUser.uid, returns});
+    } catch (error) {
+      console.log("error");
+      return null;
+    }
+  }
+
+  getReturnHistory = async () => {
+    try {
+      const data = await this.db.collection("returns")
+          .where("userID", "==", this.auth.currentUser.uid)
+          .limit(50)
+          .get();
+
+      const returns = [];
+      data.forEach((doc) =>
+          returns.push({ id: doc.id, ...doc.data() })
+      );
+      return returns.sort((a, b) => {return a.createdAt < b.createdAt ? 1: -1})
+    } catch (error) {
+      console.log("error");
+      return null;
+    }
+  }
+
   getOrderHistory = async () => {
     try {
-      const data = await this.db.collection("orders").where("userID", "==", this.auth.currentUser.uid).limit(50).get();
+      const data = await this.db.collection("orders")
+          .where("userID", "==", this.auth.currentUser.uid)
+          .limit(50)
+          .get();
 
       const orders = [];
       data.forEach((doc) =>
         orders.push({ id: doc.id, ...doc.data() })
       );
-      return orders
+      return orders.sort((a, b) => {return a.createdAt < b.createdAt ? 1: -1})
     } catch (error) {
       console.log("error");
       return null

@@ -1,4 +1,4 @@
-import { ADD_USER, DELETE_USER, EDIT_USER } from '@/constants/constants';
+import {ADD_USER, CHANGE_STATUS_SUCCESS, DELETE_USER, EDIT_USER, GET_ALL_USER_SUCCESS} from '@/constants/constants';
 
 // const initState = [
 //   {
@@ -12,7 +12,7 @@ import { ADD_USER, DELETE_USER, EDIT_USER } from '@/constants/constants';
 //   }
 // ];
 
-export default (state = {}, action) => {
+export default (state = {total: 0, users: []}, action) => {
   switch (action.type) {
     case ADD_USER:
       return [...state, action.payload];
@@ -28,6 +28,20 @@ export default (state = {}, action) => {
       });
     case DELETE_USER:
       return state.filter((user) => user.id !== action.payload);
+    case GET_ALL_USER_SUCCESS:
+      return {
+        ...state,
+        total: action.payload.total,
+        users: action.payload.users};
+    case CHANGE_STATUS_SUCCESS:
+      return {
+        ...state,
+        users: state.users.map(u => {
+          if (u.id === action.payload.id) return action.payload;
+          return u;
+        })
+      }
+
     default:
       return state;
   }

@@ -4,6 +4,8 @@ import authSaga from './authSaga';
 import productSaga from './productSaga';
 import profileSaga from './profileSaga';
 import userSaga from "@/redux/sagas/userSaga";
+import orderSaga from "@/redux/sagas/orderSaga";
+import returnSaga from "@/redux/sagas/returnSaga";
 
 function* rootSaga() {
   yield takeLatest([
@@ -29,11 +31,19 @@ function* rootSaga() {
   ], productSaga);
   yield takeLatest([
       ACTION.GET_ALL_USER,
+      ACTION.CHANGE_STATUS
   ], userSaga);
   yield takeLatest([
     ACTION.UPDATE_EMAIL,
     ACTION.UPDATE_PROFILE
   ], profileSaga);
+  yield takeLatest([
+      ACTION.GET_ORDER_BY_USER
+  ], orderSaga);
+  yield takeLatest([
+      ACTION.ADD_RETURN,
+      ACTION.GET_RETURN_BY_USER
+  ], returnSaga);
 }
 
 export default rootSaga;

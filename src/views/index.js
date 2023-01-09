@@ -20,4 +20,5 @@ export { default as Shop } from './shop';
 export { default as ViewProduct } from './view_product';
 export { default as ViewUser} from './admin/components/UserInfo';
 export { default as SuggestedProducts } from './suggested';
-
+export {default as UserOrder} from './account/components/UserOrdersTab';
+export {default as ReturnForm} from './account/returnForm/returnForm';

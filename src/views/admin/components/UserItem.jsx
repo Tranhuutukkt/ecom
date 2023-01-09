@@ -8,8 +8,7 @@ import { useHistory, withRouter } from 'react-router-dom';
 import {VIEW_USER} from "@/constants/routes";
 import {useModal} from "@/hooks";
 import UserInfo from "@/views/admin/components/UserInfo";
-import {removeProduct} from "@/redux/actions/productActions";
-import firebase from "@/services/firebase";
+import {changeStatus} from "@/redux/actions/userActions";
 
 const UserItem = ({user}) => {
     const { isOpenModal, onOpenModal, onCloseModal } = useModal();
@@ -31,14 +30,9 @@ const UserItem = ({user}) => {
 
     const onConfirmChange = () => {
         const newData = user;
-        console.log(newData.status);
         newData.status = newData.status!==undefined? !newData.status : false;
-        console.log(user.status);
-        firebase.updateProfile(user.id, newData).then(displayActionMessage('Item successfully change!'));
-        setTimeout(()=>window.location.reload(),1000);
-        useRef.current.classList.remove('item-active');
-
-
+        dispatch(changeStatus(newData));
+        userRef.current.classList.remove('item-active');
     };
 
     return (
@@ -76,7 +70,7 @@ const UserItem = ({user}) => {
                             <span>{user.role || ""}</span>
                         </div>
                         <div className="grid-col">
-                            <span>{user.status==false?"Locked":"Active"}</span>
+                            <span>{user.status===false?"Locked":"Active"}</span>
                         </div>
                     </div>
                     {user.id && (

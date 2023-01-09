@@ -12,7 +12,7 @@ import { useBasket } from "@/hooks";
 import firebase from "@/services/firebase";
 import { displayActionMessage } from "@/helpers/utils";
 
-const Total = ({ isInternational, subtotal }) => {
+const Total = ({ isInternational, subtotal, shipping, payment}) => {
   const { values, submitForm } = useFormikContext();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -24,12 +24,16 @@ const Total = ({ isInternational, subtotal }) => {
     history.push("/");
     setOpen(false);
   };
-  const onOpenModal = async () => {
-    console.log(basket);
-    const doc = await firebase.createOrder(basket);
+
+  const onOpenModal = () => {
+      setOpen(true);
+    }
+  const yesOption = async () => {
+    console.log("Basket: " + basket);
+    const doc = await firebase.createOrder(basket, shipping, payment);
     if (doc) {
       displayActionMessage("Success!", "success");
-      setOpen(true);
+      onCloseModal();
     } else {
       displayActionMessage("Error, something runs incorrectly!", "error");
     }
@@ -78,10 +82,10 @@ const Total = ({ isInternational, subtotal }) => {
               fontFamily: "Roboto, Helvetica, Arial, sans-serif",
               fontSize: "3rem",
               textAlign: "center",
-              color: "#4F51E8",
+              color: "black",
             }}
           >
-            Your payment succeeded
+            Are you sure?
           </label>
           <br />
           <div
@@ -93,17 +97,29 @@ const Total = ({ isInternational, subtotal }) => {
             <button
               style={{
                 margin: "auto",
-                backgroundColor: "#E6E6FF",
                 borderRadius: "1rem",
                 width: "10rem",
                 fontSize: "1.5rem",
               }}
-              className={`button button-small button-border button-border-gray`}
+              className={`button button-small button-border button-info`}
               type="button"
-              onClick={onCloseModal}
+              onClick={()=> setOpen(false)}
             >
-              OK
-            </button>
+              No
+            </button><br/>
+              <button
+                  style={{
+                      margin: "auto",
+                      borderRadius: "1rem",
+                      width: "10rem",
+                      fontSize: "1.5rem",
+                  }}
+                  className={`button button-small button-border button-danger`}
+                  type="button"
+                  onClick={yesOption}
+              >
+                  Yes
+              </button>
           </div>
         </div>
       </Modal>

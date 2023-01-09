@@ -1,35 +1,22 @@
 import React, { Fragment, useEffect, useState } from "react";
 import OrderContainer from "./user-orders/OrderContainer";
 import firebase from "@/services/firebase";
+import {useDispatch, useSelector} from "react-redux";
+import {getOrderByUser} from "@/redux/actions/orderActions";
 
 // Just add this feature if you want :P
 
 const UserOrdersTab = () => {
-  const [orders, setOrders] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const orders = useSelector((state) => state.orders);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getOrdersData = async () => {
-      const ordersData = await firebase.getOrderHistory();
-      console.log(ordersData);
-
-      setOrders(ordersData);
-      setIsLoading(false);
-    };
-
-    getOrdersData();
-  }, []);
-
-  if (isLoading)
-    return (
-      <div className="loader" style={{ height: "80vh" }}>
-        <h2>Loading...</h2>
-      </div>
-    );
+    dispatch(getOrderByUser());
+  }, [orders]);
 
   return (
     <div className="loader" style={{ height: "80vh" }}>
-      {orders.length === 0 ? (
+      {orders.total === 0 ? (
         <Fragment>
           <h3>My Orders</h3>
           <strong>
@@ -38,8 +25,11 @@ const UserOrdersTab = () => {
         </Fragment>
       ) : (
         <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
-          {orders.map((item, index) => (
-            <OrderContainer order={item} key={index} />
+          {orders.orders.map((item, index) => (
+              <div key={index}>
+                <OrderContainer order={item}/>
+                <br/>
+              </div>
           ))}
         </div>
       )}

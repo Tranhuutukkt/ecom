@@ -95,6 +95,8 @@ const SignIn = ({ history }) => {
                           name="password"
                           type="password"
                           label="Password"
+                          autoComplete="on"
+                          suggested="current-password"
                           placeholder="Your Password"
                           component={CustomInput}
                         />
