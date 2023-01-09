@@ -25,7 +25,7 @@ const AppRouter = () => (
           exact
           path={ROUTES.SEARCH}
         />
-        <Route
+        <ClientRoute
           component={view.Home}
           exact
           path={ROUTES.HOME}
@@ -67,10 +67,20 @@ const AppRouter = () => (
           component={view.ViewProduct}
           path={ROUTES.VIEW_PRODUCT}
         />
+        <Route
+            component={view.ReturnForm}
+            exact
+            path={ROUTES.RETURN_REQUEST}
+        />
         <ClientRoute
           component={view.UserAccount}
           exact
           path={ROUTES.ACCOUNT}
+        />
+        <ClientRoute
+            component={view.UserOrder}
+            exact
+            path={ROUTES.USER_ORDER_TAB}
         />
         <ClientRoute
           component={view.EditAccount}

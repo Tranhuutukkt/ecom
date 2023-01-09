@@ -20,3 +20,5 @@ export const CHECKOUT_STEP_3 = '/checkout/step3';
 export const VIEW_PRODUCT = '/product/:id';
 export const VIEW_USER = '/admin/users/view';
 export const SUGGESTED_PRODUCTS = '/suggested';
+export const USER_ORDER_TAB = '/account/order';
+export const RETURN_REQUEST = '/return';

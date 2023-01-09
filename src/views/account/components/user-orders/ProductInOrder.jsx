@@ -47,6 +47,7 @@ export default function ProductInOrder({ product }) {
           {displayMoney(product.price * product.quantity)}
         </h4>
       </div>
+
     </div>
   );
 }

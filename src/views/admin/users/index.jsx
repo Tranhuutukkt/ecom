@@ -3,31 +3,32 @@ import { Boundary } from '@/components/common';
 import { AppliedFilters, ProductList } from '@/components/product';
 import { useDocumentTitle, useScrollTop } from '@/hooks';
 import React, {useEffect, useState} from 'react';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { selectFilter } from '@/selectors/selector';
 import { UsersNavbar } from '../components';
 import firebase from "@/services/firebase";
 import UsersTable from "@/views/admin/components/UsersTable";
+import {getAllUser} from "@/redux/actions/userActions";
+import {getProducts} from "@/redux/actions/productActions";
 
 const Users = () => {
     useDocumentTitle('User List | TeiTouShopping Admin');
     useScrollTop();
 
-    const [users, setUsers] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [query, setQuery] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(true);
+
+    const dispatch = useDispatch();
+
+    const store = useSelector((state) => ({
+        users: state.users,
+        requestStatus: state.app.requestStatus,
+        isLoading: state.app.loading
+    }));
 
     useEffect(() => {
-        const getDataUsers = async () => {
-            const listUsers = await firebase.getAllUsers();
-
-            setUsers(listUsers);
-            setIsLoading(false);
-        };
-
-        getDataUsers();
+        dispatch(getAllUser());
     }, []);
 
     const handleSearch = query =>{
@@ -39,15 +40,15 @@ const Users = () => {
     }
 
     const getData = () => {
-        let userList = users.users;
+        let userList = store.users.users;
         if (searchQuery) {
-            userList = users.users.filter(
+            userList = store.users.users.filter(
                 u => u.fullname.toLowerCase().match(searchQuery.toLowerCase()) ||
                     u.email.toLowerCase().match(searchQuery.toLowerCase())
             );
         }
         if (query !== undefined) {
-            userList = users.users.find(
+            userList = store.users.users.find(
                 u => u.status === query
             );
         }
@@ -58,27 +59,25 @@ const Users = () => {
 
     return (
         <Boundary>
-            {isLoading? "Loading...":
-                <div>
-                    <UsersNavbar
-                        totalUsersCount={users.total || 0}
-                        handleSearch={handleSearch}
-                    />
-                    <select
-                        className="filters-brand"
-                        value={query}
-                        onChange={handleStatusChange}
-                    >
-                        <option value="">Status</option>
-                        <option value="">All</option>
-                        <option value="true">Active</option>
-                        <option value="false">Locked</option>
-                    </select>
-                    <div className="product-admin-items">
-                        <UsersTable filteredUsers={filteredUsers} />
-                    </div>
+            <div>
+                <UsersNavbar
+                    totalUsersCount={store.users.total || 0}
+                    handleSearch={handleSearch}
+                />
+                <select
+                    className="filters-brand"
+                    value={query}
+                    onChange={handleStatusChange}
+                >
+                    <option value="">Status</option>
+                    <option value="">All</option>
+                    <option value="true">Active</option>
+                    <option value="false">Locked</option>
+                </select>
+                <div className="product-admin-items">
+                    <UsersTable filteredUsers={filteredUsers} />
                 </div>
-            }
+            </div>
 
         </Boundary>
     );

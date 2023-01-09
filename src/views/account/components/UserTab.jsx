@@ -1,10 +1,13 @@
 import PropType from 'prop-types';
 import React, { useState } from 'react';
+import {USER_ORDER_TAB} from "@/constants/routes";
 
 const UserTab = (props) => {
   const { children } = props;
   const [activeTab, setActiveTab] = useState(children[0].props.index || 0);
-  const onClickTabItem = (index) => setActiveTab(index);
+  const onClickTabItem = (index) => {
+      setActiveTab(index);
+  };
 
   return (
     <div className="user-tab">

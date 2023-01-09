@@ -239,6 +239,12 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
+.grid-count-9 {
+  display: grid;
+  grid-gap: $s-size;
+  grid-template-columns: repeat(9, 1fr);
+}
+
 .position-relative {
   position: relative;
 }

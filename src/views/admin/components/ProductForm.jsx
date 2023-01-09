@@ -119,8 +119,6 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
     }
   };
 
-  console.log(product.imageUrl);
-
   return (
     <div>
       <Formik
@@ -438,7 +436,7 @@ ProductForm.propTypes = {
     description: PropType.string,
     keywords: PropType.arrayOf(PropType.string),
     imageCollection: PropType.arrayOf(PropType.object),
-    sizes: PropType.arrayOf(PropType.string),
+    sizes: PropType.arrayOf(PropType.object),
     image: PropType.string,
     imageUrl: PropType.string,
     isFeatured: PropType.bool,

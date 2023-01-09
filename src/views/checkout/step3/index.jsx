@@ -12,38 +12,37 @@ import CreditPayment from './CreditPayment';
 import PayPalPayment from './PayPalPayment';
 import Total from './Total';
 import Cash from "@/views/checkout/step3/Cash";
+import {setPaymentDetails} from "@/redux/actions/checkoutActions";
+import {useDispatch} from "react-redux";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
-    .min(4, 'Name should be at least 4 characters.')
-    .required('Name is required'),
+    .min(4, 'Name should be at least 4 characters.'),
   cardnumber: Yup.string()
     .min(13, 'Card number should be 13-19 digits long')
-    .max(19, 'Card number should only be 13-19 digits long')
-    .required('Card number is required.'),
-  expiry: Yup.date()
-    .required('Credit card expiry is required.'),
+    .max(19, 'Card number should only be 13-19 digits long'),
+  expiry: Yup.date(),
   ccv: Yup.string()
     .min(3, 'CCV length should be 3-4 digit')
-    .max(4, 'CCV length should only be 3-4 digit')
-    .required('CCV is required.'),
-  type: Yup.string().required('Please select paymend mode')
+    .max(4, 'CCV length should only be 3-4 digit'),
+  type: Yup.string().required('Please select payment mode')
 });
 
 const Payment = ({ shipping, payment, subtotal }) => {
   useDocumentTitle('Check Out Final Step');
   useScrollTop();
+  const dispatch = useDispatch();
 
   const initFormikValues = {
     name: payment.name || '',
     cardnumber: payment.cardnumber || '',
     expiry: payment.expiry || '',
     ccv: payment.ccv || '',
-    type: payment.type || 'paypal'
+    type: payment.type || ''
   };
 
-  const onConfirm = () => {
-    displayActionMessage('Feature not ready yet :)', 'info');
+  const onConfirm = (form) => {
+    dispatch(setPaymentDetails({...form, type: form.type})); // save payment details
   };
 
   if (!shipping || !shipping.isDone) {
@@ -57,7 +56,7 @@ const Payment = ({ shipping, payment, subtotal }) => {
         validateOnChange
         validationSchema={FormSchema}
         validate={(form) => {
-          if (form.type === 'paypal') {
+          if (form.type === 'cash') {
             displayActionMessage('Your action is being performed!', 'info');
           }
         }}
@@ -71,6 +70,8 @@ const Payment = ({ shipping, payment, subtotal }) => {
             <Total
               isInternational={shipping.isInternational}
               subtotal={subtotal}
+              shipping={shipping}
+              payment={payment}
             />
           </Form>
         )}
