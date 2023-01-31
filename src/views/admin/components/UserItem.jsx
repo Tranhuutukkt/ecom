@@ -5,7 +5,6 @@ import React, {Fragment, useEffect, useRef} from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useDispatch } from 'react-redux';
 import { useHistory, withRouter } from 'react-router-dom';
-import {VIEW_USER} from "@/constants/routes";
 import {useModal} from "@/hooks";
 import UserInfo from "@/views/admin/components/UserInfo";
 import {changeStatus} from "@/redux/actions/userActions";
@@ -17,7 +16,7 @@ const UserItem = ({user}) => {
     const userRef = useRef(null);
 
     const onClickEdit = () => {
-        history.push(`${VIEW_USER}/${user.id}`);
+        history.push(`${USER}/${user.id}`);
     };
 
     const onChangeStatus = () => {

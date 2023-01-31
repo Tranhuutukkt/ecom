@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import {
-    ADD_RETURN,
-    GET_ORDER_BY_USER, GET_RETURN_BY_USER
+    ADD_RETURN, CHANGE_ORDER_STATUS, CHANGE_RETURN_STATUS, GET_ALL_RETURN,
+    GET_RETURN_BY_USER
 
 } from '@/constants/constants';
 import {all, call, put, select} from 'redux-saga/effects';
@@ -9,9 +9,14 @@ import {setLoading, setRequestStatus} from "@/redux/actions/miscActions";
 import {history} from "@/routers/AppRouter";
 import {displayActionMessage} from "@/helpers/utils";
 import firebase from "@/services/firebase";
-import {addReturnSuccess, getReturnByUserSuccess} from "@/redux/actions/returnAction";
-import {ACCOUNT, ADMIN_PRODUCTS} from "@/constants/routes";
-import {getOrderByUserSuccess} from "@/redux/actions/orderActions";
+import {
+    addReturnSuccess,
+    changeReturnStatusSuccess,
+    getAllReturnSuccess,
+    getReturnByUserSuccess
+} from "@/redux/actions/returnAction";
+import {ACCOUNT, ADMIN_ORDERS, ADMIN_PRODUCTS, ADMIN_RETURNS} from "@/constants/routes";
+import {changeOrderStatusSuccess, getAllOrderSuccess, getOrderByUserSuccess} from "@/redux/actions/orderActions";
 
 function* initRequest() {
     yield put(setLoading(true));
@@ -74,6 +79,34 @@ function* returnSaga({type, payload}){
                 yield handleError(e);
             }
             break;
+        }
+        case GET_ALL_RETURN:{
+            try{
+                yield initRequest();
+                const result = yield call(firebase.getAllReturns);
+                yield put(getAllReturnSuccess(result));
+                yield put(setLoading(false));
+            } catch (e) {
+                console.log(e);
+                yield handleError(e);
+            }
+            break;
+        }
+        case CHANGE_RETURN_STATUS:{
+            try {
+                yield initRequest();
+                yield call(firebase.updateReturn, payload.id, payload);
+                yield put(changeReturnStatusSuccess(payload));
+                yield put(setLoading(false));
+                yield handleAction(ADMIN_RETURNS, 'Return succesfully changed status!', 'success');
+            } catch (e) {
+                yield handleError(e);
+                yield handleAction(undefined, `Order failed to change status: ${e.message}`, 'error');
+            }
+            break;
+        }
+        default: {
+            throw new Error(`Unexpected action type ${type}`);
         }
     }
 }

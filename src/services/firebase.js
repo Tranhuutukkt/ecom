@@ -396,6 +396,75 @@ class Firebase {
     }
   }
 
+  getAllOrder = async () => {
+    try {
+      const data = await this.db.collection("orders").get();
+      const user = await this.db.collection("users").get();
+
+      const orders = [];
+      const users = [];
+      const draft = [];
+      user.forEach(doc => {
+        users.push({ id: doc.id, ...doc.data()});
+      })
+      data.forEach((doc) =>{
+          draft.push({ id: doc.id, ...doc.data()});
+      });
+      draft.forEach(doc => {
+        const newData = users.find(u => u.id === doc.userID);
+        const total = calculateTotal(doc.products.map((product) =>
+            product.price * product.quantity));
+        orders.push({avatar: newData.avatar, name: newData.fullname, total: total, ...doc});
+      })
+      return orders.sort((a, b) => {return a.createdAt < b.createdAt ? 1: -1})
+    } catch (error) {
+      console.log("error");
+      return null
+    }
+  }
+
+  getAllReturns = async () => {
+    try {
+      const data = await this.db.collection("returns").get();
+      const userData = await this.db.collection("users").get();
+
+      const returns = [];
+      const users = [];
+      const draft = [];
+      userData.forEach(doc => {
+        users.push({id: doc.id, ...doc.data()});
+      })
+      data.forEach((doc) => {
+        draft.push({id: doc.id, ...doc.data()});
+      });
+      draft.forEach(doc => {
+        const newData = users.find(u => u.id === doc.userID);
+        returns.push({avatar: newData.avatar, name: newData.fullname, ...doc});
+      })
+      return returns.sort((a, b) => {
+        return a.createdAt < b.createdAt ? 1 : -1
+      })
+    } catch (error) {
+      console.log("error");
+      return null
+    }
+  }
+
+  getSingleOrder = async (id) =>{
+    const data = await this.db.collection("orders").doc(id).get();
+    console.log(data);
+    return  {id: data.id, ...data.data()};
+  }
+
+  updateOrder = (id, updates) => {
+    this.db.collection("orders").doc(id).update(updates);
+  }
+
+  updateReturn = (id, updates) => {
+    this.db.collection("returns").doc(id).update(updates);
+  }
+
+
   getOrderHistory = async () => {
     try {
       const data = await this.db.collection("orders")
@@ -413,6 +482,9 @@ class Firebase {
       return null
     }
   }
+
+
+
 }
 
 const firebaseInstance = new Firebase();

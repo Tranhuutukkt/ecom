@@ -117,13 +117,20 @@ const AppRouter = () => (
           path={ROUTES.ADD_PRODUCT}
         />
         <AdminRoute
-            component={view.Users}
-            path={ROUTES.ADMIN_USERS}
+            component={view.Orders}
+            path={ROUTES.ADMIN_ORDERS}
         />
         <AdminRoute
-            render={user => <UserInfo user={user}/>}
-            exact
-            path={`${ROUTES.VIEW_USER}/:id`}
+            component={view.Returns}
+            path={ROUTES.ADMIN_RETURNS}
+        />
+        <AdminRoute
+            component={view.ViewOrder}
+            path={`${ROUTES.VIEW_ORDER}/:id`}
+        />
+        <AdminRoute
+            component={view.ViewReturn}
+            path={`${ROUTES.VIEW_RETURN}/:id`}
         />
         <AdminRoute
           component={view.EditProduct}

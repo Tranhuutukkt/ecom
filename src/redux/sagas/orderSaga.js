@@ -1,5 +1,7 @@
 /* eslint-disable indent */
 import {
+    CHANGE_ORDER_STATUS,
+    GET_ALL_ORDER,
     GET_ORDER_BY_USER
 
 } from '@/constants/constants';
@@ -8,7 +10,8 @@ import {setLoading, setRequestStatus} from "@/redux/actions/miscActions";
 import {history} from "@/routers/AppRouter";
 import {displayActionMessage} from "@/helpers/utils";
 import firebase from "@/services/firebase";
-import {getOrderByUserSuccess} from "@/redux/actions/orderActions";
+import {changeOrderStatusSuccess, getAllOrderSuccess, getOrderByUserSuccess} from "@/redux/actions/orderActions";
+import {ADMIN_ORDERS} from "@/constants/routes";
 
 function* initRequest() {
     yield put(setLoading(true));
@@ -39,6 +42,34 @@ function* orderSaga({type, payload}){
                 yield handleError(e);
             }
             break;
+        }
+        case GET_ALL_ORDER:{
+            try{
+                yield initRequest();
+                const result = yield call(firebase.getAllOrder);
+                yield put(getAllOrderSuccess(result));
+                yield put(setLoading(false));
+            } catch (e) {
+                console.log(e);
+                yield handleError(e);
+            }
+            break;
+        }
+        case CHANGE_ORDER_STATUS:{
+            try {
+                yield initRequest();
+                yield call(firebase.updateOrder, payload.id, payload);
+                yield put(changeOrderStatusSuccess(payload));
+                yield put(setLoading(false));
+                yield handleAction(ADMIN_ORDERS, 'Order succesfully changed status!', 'success');
+            } catch (e) {
+                yield handleError(e);
+                yield handleAction(undefined, `Order failed to change status: ${e.message}`, 'error');
+            }
+            break;
+        }
+        default: {
+            throw new Error(`Unexpected action type ${type}`);
         }
     }
 }

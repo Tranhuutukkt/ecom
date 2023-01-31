@@ -4,11 +4,9 @@ import React from 'react';
 import { UserItem } from '.';
 import {NavLink} from "react-router-dom";
 import {useModal} from "@/hooks";
-import {ADMIN_USERS, VIEW_USER} from "@/constants/routes";
 import UserInfo from "@/views/admin/components/UserInfo";
 
 const UsersTable = ({ filteredUsers }) => {
-    const {isOpenModal, onOpenModal, onCloseModal} = useModal();
     return (
         <div>
             {filteredUsers.length > 0 && (

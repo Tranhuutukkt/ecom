@@ -81,12 +81,12 @@ const EditForm = ({ isLoading, authProvider }) => {
         <button
           className="button button-muted w-100-mobile"
           disabled={isLoading}
-          onClick={() => history.push(ACCOUNT)}
+          onClick={() => history.goBack()}
           type="button"
         >
           <ArrowLeftOutlined />
           &nbsp;
-          Back to Profile
+          Back
         </button>
         <button
           className="button w-100-mobile"

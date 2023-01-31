@@ -20,7 +20,7 @@ npm manifest:
   {
     "name": "itss20221",
     "version": "1.2.0",
-    "main": "index.js",
+    "main": "index.jsx",
     "author": "",
     "keywords": [
       "react-webpack",

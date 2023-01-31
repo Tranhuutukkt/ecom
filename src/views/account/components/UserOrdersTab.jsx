@@ -4,8 +4,6 @@ import firebase from "@/services/firebase";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrderByUser} from "@/redux/actions/orderActions";
 
-// Just add this feature if you want :P
-
 const UserOrdersTab = () => {
   const orders = useSelector((state) => state.orders);
   const dispatch = useDispatch();
