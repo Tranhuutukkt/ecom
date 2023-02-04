@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {ImageLoader, Modal} from "@/components/common";
 import PropType from "prop-types";
-import OrderItem from "@/views/account/components/user-orders/OrderItem";
-import {displayDate, displayMoney} from "@/helpers/utils";
+import {displayDate} from "@/helpers/utils";
 
 const ReturnDetail = ({data}) => {
     const [open, setOpen] = useState(false);

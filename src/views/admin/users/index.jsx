@@ -1,16 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Boundary } from '@/components/common';
-import { AppliedFilters, ProductList } from '@/components/product';
 import { useDocumentTitle, useScrollTop } from '@/hooks';
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { selectFilter } from '@/selectors/selector';
 import { UsersNavbar } from '../components';
-import firebase from "@/services/firebase";
 import UsersTable from "@/views/admin/components/UsersTable";
 import {getAllUser} from "@/redux/actions/userActions";
-import {getProducts} from "@/redux/actions/productActions";
 
 const Users = () => {
     useDocumentTitle('User List | TeiTouShopping Admin');

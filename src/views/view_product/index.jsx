@@ -18,6 +18,7 @@ import { Modal } from "@/components/common";
 import ReviewForm from "@/components/product/review/ReviewForm";
 import ReviewsContainer from "@/components/product/review/ReviewsContainer";
 import SuggestSize from "@/views/view_product/suggestSize";
+import video from '../../images/How To Measure Your Body Using A Measuring Tape.mp4';
 
 const ViewProduct = () => {
   const history = useHistory();
@@ -31,6 +32,15 @@ const ViewProduct = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [sizeInfo, setSizeInfo] = useState({});
   const [selectedColor, setSelectedColor] = useState("");
+  const [open1, setOpen1] = useState(false);
+
+  const onCloseModal1 = () => {
+    setOpen1(false);
+  };
+
+  const onOpenModal1 = () => {
+    setOpen1(true);
+  }
 
   const {
     recommendedProducts,
@@ -137,6 +147,14 @@ const ViewProduct = () => {
                     >
                       Edit measure
                     </button>
+                    <button
+                        style={{ float: "right" }}
+                        className={`button button-small button-border button-border-gray`}
+                        type="button"
+                        onClick={() => setOpen1(true)}
+                    >
+                      How to measure?
+                    </button>
                     <SuggestSize/>
                     <br />
                     <br />
@@ -238,6 +256,21 @@ const ViewProduct = () => {
             </Fragment>
         )}
       </main>
+      <Modal isOpen={open1} onRequestClose={onCloseModal}>
+        <div style={{width: "800px"}}></div>
+        <h3 style={{textAlign: "center"}}>How to measure</h3>
+        <p>Ngực: Đo quanh vòng ngực chỗ lớn nhất</p>
+        <p>Eo: Đo quanh vòng eo chỗ nhỏ nhất (thắt eo)</p>
+        <p>Mông: Đo vòng quanh mông chỗ lớn nhất</p>
+        <video width="600" height="400" controls>
+          <source src={video} type='video/mp4'/>
+        </video>
+        <button
+            className='button button-small button-round'
+            onClick={()=>setOpen1(false)}>
+          OK
+        </button>
+      </Modal>
 
       <Modal isOpen={isOpenModal} onRequestClose={onCloseModal}>
         <ReviewForm closeFunc={onCloseModal} />

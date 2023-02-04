@@ -38,11 +38,15 @@ function* rootSaga() {
     ACTION.UPDATE_PROFILE
   ], profileSaga);
   yield takeLatest([
-      ACTION.GET_ORDER_BY_USER
+      ACTION.GET_ORDER_BY_USER,
+      ACTION.GET_ALL_ORDER,
+      ACTION.CHANGE_ORDER_STATUS
   ], orderSaga);
   yield takeLatest([
       ACTION.ADD_RETURN,
-      ACTION.GET_RETURN_BY_USER
+      ACTION.GET_RETURN_BY_USER,
+      ACTION.GET_ALL_RETURN,
+      ACTION.CHANGE_RETURN_STATUS
   ], returnSaga);
 }
 
