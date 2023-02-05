@@ -52,6 +52,7 @@ const ViewProduct = () => {
 
   useEffect(() => {
     setSelectedImage(product?.image);
+    setSizeInfo({});
   }, [product]);
 
   const onSelectedSizeChange = (newValue) => {
@@ -155,9 +156,9 @@ const ViewProduct = () => {
                     >
                       How to measure?
                     </button>
-                    <SuggestSize/>
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
+                    <br/>
                     <Select
                       placeholder="--Select Size--"
                       onChange={onSelectedSizeChange}
@@ -170,13 +171,8 @@ const ViewProduct = () => {
                     />
                     <br/>
                     <div>
-                      Size Information:<br/>
-                      {sizeInfo && Object.keys(sizeInfo).map(s => {
-                        if (s !== "type")
-                          return (
-                              <p key={s}>{s}: {sizeInfo[s]}cm</p>
-                          )
-                      })}
+                      Size Information:<br/><br/>
+                      <SuggestSize size={sizeInfo}/>
                     </div>
 
                   </div>
@@ -211,16 +207,11 @@ const ViewProduct = () => {
                         ? "Remove From Basket"
                         : "Add To Basket"}
                     </button>
-                    <button
-                      style={{ float: "right" }}
-                      className={`button button-small button-border button-border-gray`}
-                      type="button"
-                      onClick={onOpenModal}
-                    >
-                      Write review
-                    </button>
                   </div>
                 </div>
+              </div>
+              <div>
+                <ReviewsContainer/>
               </div>
               <div style={{ marginTop: "10rem" }}>
                 <div className="display-header">
@@ -241,18 +232,6 @@ const ViewProduct = () => {
                 )}
                 </div>
               </div>
-              <div
-                  style={{
-                    float: "right",
-                    width: "50rem",
-                    height: "540px",
-                    marginTop: "90px",
-                    overflow: "auto",
-                    border: "1px solid #E1E1E1",
-                    backgroundColor: "#FFF",
-                  }}>
-                <ReviewsContainer/>
-              </div>
             </Fragment>
         )}
       </main>
@@ -270,10 +249,6 @@ const ViewProduct = () => {
             onClick={()=>setOpen1(false)}>
           OK
         </button>
-      </Modal>
-
-      <Modal isOpen={isOpenModal} onRequestClose={onCloseModal}>
-        <ReviewForm closeFunc={onCloseModal} />
       </Modal>
     </Fragment>
   );

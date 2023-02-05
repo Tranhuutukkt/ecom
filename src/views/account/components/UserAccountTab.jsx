@@ -38,58 +38,66 @@ const UserProfile = (props) => {
         </div>
         <div className="user-profile-details">
           <h2 className="user-profile-name">{profile.fullname}</h2>
-          <span>Email</span>
-          <br />
-          <h5>{profile.email}</h5>
-          <span>Address</span>
-          <br />
-          {profile.address ? (
-            <h5>{profile.address}</h5>
-          ) : (
-            <h5 className="text-subtle text-italic">Address not set</h5>
-          )}
-          <span>Mobile</span>
-          <br />
-          {profile.mobile ? (
-            <h5>{profile.mobile.value}</h5>
-          ) : (
-            <h5 className="text-subtle text-italic">Mobile not set</h5>
-          )}
-          <span>Date Joined</span>
-          <br />
-          {profile.dateJoined ? (
-            <h5>{displayDate(profile.dateJoined)}</h5>
-          ) : (
-            <h5 className="text-subtle text-italic">Not available</h5>
-          )}
-          <br/>
-          <span>Your height: </span>
-          {profile.height ? (
-              <h5>{profile.height} cm</h5>
-          ) : (
-              <h5 className="text-subtle text-italic">Not available</h5>
-          )}
-          <br/>
-          <span>Your hip size: </span>
-          {profile.hip ? (
-              <h5>{profile.hip} cm</h5>
-          ) : (
-              <h5 className="text-subtle text-italic">Not available</h5>
-          )}
-          <br/>
-          <span>Your waist size: </span>
-          {profile.waist ? (
-              <h5>{profile.waist} cm</h5>
-          ) : (
-              <h5 className="text-subtle text-italic">Not available</h5>
-          )}
-          <br/>
-          <span>Your chest size: </span>
-          {profile.chest ? (
-              <h5>{profile.chest} cm</h5>
-          ) : (
-              <h5 className="text-subtle text-italic">Not available</h5>
-          )}
+          <div className="grid grid-product grid-count-2">
+            <div className="grid-col">
+              <span>Email</span>
+              <br />
+              <h5>{profile.email}</h5>
+              <span>Address</span>
+              <br />
+              {profile.address ? (
+                  <h5>{profile.address}</h5>
+              ) : (
+                  <h5 className="text-subtle text-italic">Address not set</h5>
+              )}
+              <span>Mobile</span>
+              <br />
+              {profile.mobile ? (
+                  <h5>{profile.mobile.value}</h5>
+              ) : (
+                  <h5 className="text-subtle text-italic">Mobile not set</h5>
+              )}
+              <span>Date Joined</span>
+              <br />
+              {profile.dateJoined ? (
+                  <h5>{displayDate(profile.dateJoined)}</h5>
+              ) : (
+                  <h5 className="text-subtle text-italic">Not available</h5>
+              )}
+              <br/>
+            </div>
+            <div className="grid-col">
+              <span>Your height: </span>
+              {profile.height ? (
+                  <h5>{profile.height} cm</h5>
+              ) : (
+                  <h5 className="text-subtle text-italic">Not available</h5>
+              )}
+              <br/>
+              <span>Your hip size: </span>
+              {profile.hip ? (
+                  <h5>{profile.hip} cm</h5>
+              ) : (
+                  <h5 className="text-subtle text-italic">Not available</h5>
+              )}
+              <br/>
+              <span>Your waist size: </span>
+              {profile.waist ? (
+                  <h5>{profile.waist} cm</h5>
+              ) : (
+                  <h5 className="text-subtle text-italic">Not available</h5>
+              )}
+              <br/>
+              <span>Your chest size: </span>
+              {profile.chest ? (
+                  <h5>{profile.chest} cm</h5>
+              ) : (
+                  <h5 className="text-subtle text-italic">Not available</h5>
+              )}
+            </div>
+          </div>
+
+
         </div>
       </div>
     </div>

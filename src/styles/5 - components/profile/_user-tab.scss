@@ -1,5 +1,5 @@
 .user-tab {
-  width: 700px;
+  width: 900px;
   height: 100%;
   margin: 0 auto;
   margin-top: 3rem;
@@ -11,9 +11,17 @@
     margin-top: 6rem;
   }
 }
+.user-tab-child{
+  width: 800px;
+
+  @media (max-width: $mobile) {
+    width: 100%;
+    margin-top: 6rem;
+  }
+}
 
 .user-tab-content {
-  padding: $m-size;
+  padding: $s-size;
   height: 100%;
 
   @include mobile {

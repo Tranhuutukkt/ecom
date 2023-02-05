@@ -153,7 +153,7 @@ const ReturnForm = ({ order, product, onSubmit, isLoading }) => {
                                                             title="Delete Image"
                                                             type="button"
                                                         >
-                                                            Delete
+                                                            <i className="fa-solid fa-trash"></i>
                                                         </button>
                                                     </div>
                                                 ))

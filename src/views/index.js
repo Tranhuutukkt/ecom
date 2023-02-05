@@ -23,5 +23,7 @@ export { default as ViewProduct } from './view_product';
 export { default as ViewOrder } from './admin/orders/view_order';
 export { default as ViewReturn } from './admin/returns/view_return';
 export { default as SuggestedProducts } from './suggested';
-export {default as UserOrder} from './account/components/UserOrdersTab';
+export {default as UserOrder} from './account/user_order';
+export {default as UserReturn} from './account/components/UserReturnTab';
+export {default as Profile} from './account/components/UserAccountTab';
 export {default as ReturnForm} from './account/returnForm/returnForm';

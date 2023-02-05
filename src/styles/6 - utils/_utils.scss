@@ -221,10 +221,10 @@
   align-items: center;
 }
 
-.grid-count-4 {
+.grid-count-2 {
   display: grid;
   grid-gap: $s-size;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .grid-count-6 {
@@ -239,10 +239,10 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.grid-count-9 {
+.grid-count-10 {
   display: grid;
   grid-gap: $s-size;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .position-relative {

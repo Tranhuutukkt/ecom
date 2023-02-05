@@ -49,7 +49,7 @@ function* profileSaga({ type, payload }) {
         }
 
         yield put(setLoading(false));
-        yield call(history.push, ACCOUNT);
+        yield call(history.goBack);
         yield call(displayActionMessage, 'Profile Updated Successfully!', 'success');
       } catch (e) {
         console.log(e);

@@ -83,6 +83,16 @@ const AppRouter = () => (
             path={ROUTES.USER_ORDER_TAB}
         />
         <ClientRoute
+            component={view.UserReturn}
+            exact
+            path={ROUTES.USER_RETURN_TAB}
+        />
+        <ClientRoute
+            component={view.Profile}
+            exact
+            path={ROUTES.USER_PROFILE}
+        />
+        <ClientRoute
           component={view.EditAccount}
           exact
           path={ROUTES.ACCOUNT_EDIT}

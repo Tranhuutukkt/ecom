@@ -100,3 +100,17 @@
     font-size: inherit;
   }
 }
+
+//STAR RATING----
+.star-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: gold;
+}
+.off {
+  color: gray;
+}

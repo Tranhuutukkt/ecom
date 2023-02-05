@@ -61,7 +61,7 @@ function* orderSaga({type, payload}){
                 yield call(firebase.updateOrder, payload.id, payload);
                 yield put(changeOrderStatusSuccess(payload));
                 yield put(setLoading(false));
-                yield handleAction(ADMIN_ORDERS, 'Order succesfully changed status!', 'success');
+                yield handleAction(undefined, 'Order succesfully changed status!', 'success');
             } catch (e) {
                 yield handleError(e);
                 yield handleAction(undefined, `Order failed to change status: ${e.message}`, 'error');

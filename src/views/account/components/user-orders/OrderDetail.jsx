@@ -1,8 +1,13 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import {Modal} from "@/components/common";
 import PropType from "prop-types";
 import OrderItem from "@/views/account/components/user-orders/OrderItem";
 import {displayMoney} from "@/helpers/utils";
+import ReviewForm from "@/components/product/review/ReviewForm";
+import {useModal} from "@/hooks";
+import {changeOrderStatus} from "@/redux/actions/orderActions";
+import {useDispatch} from "react-redux";
+import {CloseCircleOutlined, CloseOutlined} from "@ant-design/icons";
 
 const statusDetails = [
     {msg: 'Canceled', color: "burlywood"},
@@ -25,33 +30,49 @@ const fee =  (order) => order.shipping?.isInternational ? 50000:0|| 0;
 
 const OrderDetail = ({order}) => {
     const [open, setOpen] = useState(false);
-
-    const onCloseModal = () => {
+    const dispatch = useDispatch();
+    const onCloseModal1 = () => {
         setOpen(false);
     };
 
-    const onOpenModal = () => {
+    const onOpenModal1 = () => {
         setOpen(true);
+    }
+
+    const changeStatusOrder = (id) => {
+            const newData = order;
+            delete newData.name;
+            delete newData.avatar;
+            newData.status = id;
+            dispatch(changeOrderStatus(newData));
     }
 
     return(
         <>
             <div>
                 <p style={{width: "10rem", borderRadius: "10px", backgroundColor: statusDetails[order.status]?.color||"white"}}>{statusDetails[order.status]?.msg||''}</p>
-                <button
-                    className='button button-small button-round'
-                    style={{float: "right"}}
-                onClick={onOpenModal}>
-                    Details
-                </button>
-                <button
-                    className='button button-small button-round'
-                    disabled={order.status === 0 || order.status > 1? true:false}
-                >
-                    Cancel
-                </button>
+                <div>
+                    <div style={{float: "left"}}>
+                        <button
+                            className='button button-small button-round'
+                            onClick={onOpenModal1}>
+                            Details
+                        </button>
+                    </div>
+                    <div style={{float: "right"}}>
+                        <button
+                            className='button button-small button-round'
+
+                            disabled={order.status === 0 || order.status > 1}
+                            onClick={()=>changeStatusOrder(0)}
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
             </div>
-            <Modal isOpen={open} onRequestClose={onCloseModal}>
+            <Modal isOpen={open} onRequestClose={onCloseModal1}>
                 <div style={{width: "800px"}}></div>
                 <h3 style={{textAlign: "center"}}>Order Detail</h3>
                 <span>Order ID:&nbsp;

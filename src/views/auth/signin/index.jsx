@@ -1,4 +1,4 @@
-import { ArrowRightOutlined, LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import { SocialLogin } from '@/components/common';
 import { CustomInput } from '@/components/formik';
 import { FORGOT_PASSWORD, SIGNUP } from '@/constants/routes';
@@ -117,7 +117,10 @@ const SignIn = ({ history }) => {
                         >
                           {isAuthenticating ? 'Signing In' : 'Sign In'}
                           &nbsp;
-                          {isAuthenticating ? <LoadingOutlined /> : <ArrowRightOutlined />}
+                          {isAuthenticating ?
+                              <LoadingOutlined /> :
+                              <i className="fa-solid fa-arrow-right"></i>
+                          }
                         </button>
                       </div>
                     </Form>

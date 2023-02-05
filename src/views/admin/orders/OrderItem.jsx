@@ -7,9 +7,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useHistory, withRouter } from 'react-router-dom';
 import {VIEW_ORDER} from "@/constants/routes";
 import {useModal} from "@/hooks";
-import UserInfo from "@/views/admin/components/UserInfo";
-import {changeStatus, getAllUser} from "@/redux/actions/userActions";
-import firebase from "firebase";
 
 const statusDetails = [
     {msg: 'Canceled', color: "burlywood"},
@@ -85,12 +82,6 @@ const OrderItem = ({order}) => {
                     )}
                 </div>
             </SkeletonTheme>
-
-            {/*<Modal*/}
-            {/*    isOpen={isOpenModal} onRequestClose={onCloseModal}*/}
-            {/*>*/}
-            {/*    <UserInfo closeFunc={onCloseModal} user={user}/>*/}
-            {/*</Modal>*/}
         </Fragment>
 
     );

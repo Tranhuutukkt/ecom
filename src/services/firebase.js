@@ -331,9 +331,18 @@ class Firebase {
 
   removeProduct = (id) => this.db.collection("products").doc(id).delete();
 
-  addReview = async (productID, review) => {
+  addReview = async (productID, review, rating) => {
     const userInfo = (await this.db.collection("users").doc(this.auth.currentUser.uid).get()).data();
-    await this.db.collection("reviews").add({ userID: this.auth.currentUser.uid, fullname: userInfo.fullname, avatar: userInfo.avatar, productID, comment: review });
+    await this.db.collection("reviews")
+        .add({
+          userID: this.auth.currentUser.uid,
+          fullname: userInfo.fullname,
+          avatar: userInfo.avatar,
+          productID: productID,
+          comment: review,
+          rating: rating,
+          createdAt: new Date().getTime()
+        });
   }
 
   getReviews = async (productID) => {

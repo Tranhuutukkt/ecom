@@ -4,26 +4,32 @@ import { useState } from "react";
 import firebase from "@/services/firebase";
 import { useHistory, useParams } from "react-router-dom";
 import { displayActionMessage } from "@/helpers/utils";
+import StarRating from "@/views/account/components/starRating";
 
-const ReviewForm = (props) => {
+const ReviewForm = ({product, closeFunc}) => {
   const [review, setReview] = useState("");
-  const { id } = useParams();
+  const [rating, setRating] = useState(0);
+  const [error, setError] = useState('');
+  const { id } = product;
 
   const handleChange = (e) => {
     setReview(e.target.value);
   };
 
   const submit = async () => {
-    const doc = await firebase.addReview(id, review);
-    if (doc) displayActionMessage("Your review has been saved", "success");
-    props.closeFunc();
-    window.location.reload();
+      if (review === "") return setError("Review is required!");
+      if (rating === 0) return setError("Rating is required!");
+      const doc = await firebase.addReview(id, review, rating);
+      if (doc) displayActionMessage("Your review has been saved", "success");
+      closeFunc();
+      window.location.reload();
   };
   return (
     <div>
       <form>
         <label
           htmlFor="review-text"
+          className="text-center"
           style={{
             display: "block",
             border: "none",
@@ -35,7 +41,10 @@ const ReviewForm = (props) => {
         >
           Your review
         </label>
-        <br />
+          <span style={{color: "red"}}>{error}</span>
+        <br/><br/>
+          <StarRating rating={rating} setRating={setRating}/>
+          <br/>
         <textarea
           name="review-text"
           type="text"

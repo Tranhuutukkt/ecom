@@ -339,7 +339,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                           title="Delete Image"
                           type="button"
                         >
-                          <i className="fa fa-times-circle" />
+                          <i className="fa-solid fa-trash"></i>
                         </button>
                       </div>
                     ))

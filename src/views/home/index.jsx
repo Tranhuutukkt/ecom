@@ -1,4 +1,3 @@
-import { ArrowRightOutlined } from '@ant-design/icons';
 import { MessageDisplay } from '@/components/common';
 import { ProductShowcaseGrid } from '@/components/product';
 import { FEATURED_PRODUCTS, RECOMMENDED_PRODUCTS, SHOP, SUGGESTED_PRODUCTS } from '@/constants/routes';
@@ -55,7 +54,7 @@ const Home = () => {
             <br />
             <Link to={SHOP} className="button">
             Shop now &nbsp;
-              <ArrowRightOutlined />
+              <i className="fa-solid fa-arrow-right"></i>
             </Link>
           </div>
           <div className="banner-img"><img src={bannerImg} alt="" /></div>
