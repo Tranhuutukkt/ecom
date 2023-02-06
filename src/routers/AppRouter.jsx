@@ -9,6 +9,7 @@ import AdminRoute from './AdminRoute';
 import ClientRoute from './ClientRoute';
 import PublicRoute from './PublicRoute';
 import UserInfo from "@/views/admin/components/UserInfo";
+import ProfileRoute from "@/routers/ProfileRoute";
 
 // Revert back to history v4.10.0 because
 // v5.0 breaks navigation
@@ -72,27 +73,27 @@ const AppRouter = () => (
             exact
             path={ROUTES.RETURN_REQUEST}
         />
-        <ClientRoute
+        <ProfileRoute
           component={view.UserAccount}
           exact
           path={ROUTES.ACCOUNT}
         />
-        <ClientRoute
+        <ProfileRoute
             component={view.UserOrder}
             exact
             path={ROUTES.USER_ORDER_TAB}
         />
-        <ClientRoute
+        <ProfileRoute
             component={view.UserReturn}
             exact
             path={ROUTES.USER_RETURN_TAB}
         />
-        <ClientRoute
+        <ProfileRoute
             component={view.Profile}
             exact
             path={ROUTES.USER_PROFILE}
         />
-        <ClientRoute
+        <ProfileRoute
           component={view.EditAccount}
           exact
           path={ROUTES.ACCOUNT_EDIT}

@@ -7,7 +7,8 @@ export default function ReturnContainer({ data }) {
     return (
         <div
             style={{
-                width: "100%",
+                width: "1000px",
+                height: "250px",
                 backgroundColor: "white",
                 border: "1px solid #E1E1E1",
                 marginBottom: "1rem",
@@ -46,7 +47,6 @@ export default function ReturnContainer({ data }) {
                 />
             </div>
             <ReturnDetail data={data}/>
-
         </div>
     );
 }

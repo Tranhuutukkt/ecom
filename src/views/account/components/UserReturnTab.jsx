@@ -23,7 +23,7 @@ const UserReturnTab = () => {
                     <strong><span className="text-subtle">You don&apos;t have a return list!</span></strong>
                 </Fragment>):
                 (
-                    <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
+                    <div style={{ width: "100%", height: "80vh", overflow: "scroll" }}>
                         {returns.orders.map((item, index) => (
                             <div key={index}>
                                 <ReturnContainer data={item}/>

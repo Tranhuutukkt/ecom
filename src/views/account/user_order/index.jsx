@@ -5,6 +5,7 @@ import {getOrderByUser} from "@/redux/actions/orderActions";
 import {withRouter} from "react-router-dom";
 import {useDocumentTitle, useScrollTop} from "@/hooks";
 import UserTabChild from "@/views/account/components/UserTabChild";
+import UserTab from "@/views/account/components/UserTab";
 
 function Loader() {
   return null;
@@ -42,11 +43,11 @@ const UserOrdersTab = () => {
         </Fragment>
       ) : (
           <Fragment>
-            <UserTabChild>
+            <UserTab>
               {statusDetails.map(s => (
                   <div key={s.id} index={statusDetails.indexOf(s)} label={s.msg}>
                     <Suspense fallback={<Loader/>}>
-                      <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
+                      <div style={{ width: "100%", height: "70vh", overflow: "scroll" }}>
                         {orders.orders.filter(o => o.status === s.id).length === 0 && s.id !== 6?
                             <span className="text-subtle">
                               Don&apos;t have orders.</span>: ""}
@@ -64,7 +65,7 @@ const UserOrdersTab = () => {
                     </Suspense>
                   </div>
               ))}
-            </UserTabChild>
+            </UserTab>
           </Fragment>
       )}
     </div>

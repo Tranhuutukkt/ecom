@@ -2,7 +2,7 @@
 import {
   DownOutlined, LoadingOutlined, LogoutOutlined, UserOutlined
 } from '@ant-design/icons';
-import { ACCOUNT } from '@/constants/routes';
+import {ACCOUNT, USER_PROFILE} from '@/constants/routes';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -66,7 +66,7 @@ const UserNav = () => {
       <div className="user-nav-sub">
         {profile.role !== 'ADMIN' && (
           <Link
-            to={ACCOUNT}
+            to={USER_PROFILE}
             className="user-nav-sub-link"
           >
             View Account

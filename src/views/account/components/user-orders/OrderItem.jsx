@@ -74,30 +74,24 @@ const OrderItem = ({product, order}) => {
                             />
                         </div>
                         {(profile.role === 'USER')? (
-                                <div>
                                     <div className="grid-col">
                                         <ReturnForm product={product} order={order} isLoading={false} onSubmit={returnSubmit}/>
                                     </div>
-                                    <div className="grid-col">
-                                        <button
-                                            className={`button button-small button-round`}
-                                            type="button"
-                                            onClick={onOpenModal}
-                                            disabled={order.status !== 4}
-                                        >
-                                            Write review
-                                        </button>
-                                    </div>
+                        ) : (<div className="grid-col"></div>)}
+                        {(profile.role === 'USER')? (
+                            <div className="grid-col">
+                                <div className="grid-col">
+                                    <button
+                                        className={`button button-small button-round`}
+                                        type="button"
+                                        onClick={onOpenModal}
+                                        disabled={order.status !== 4}
+                                    >
+                                        Write review
+                                    </button>
                                 </div>
-
-                        ) : (
-                            <div>
-                                <div className="grid-col"></div>
-                                <div className="grid-col"></div>
                             </div>
-
-                            )}
-
+                        ) : (<div className="grid-col"></div>)}
 
                     </div>
                 </div>

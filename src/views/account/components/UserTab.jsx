@@ -7,7 +7,6 @@ const UserTab = (props) => {
   const onClickTabItem = (index) => {
       setActiveTab(index);
   };
-  console.log(props);
 
   return (
     <div className="user-tab" >

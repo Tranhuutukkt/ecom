@@ -42,7 +42,6 @@ const Returns = () => {
     }
 
     const {filteredReturns} = getData();
-    console.log(filteredReturns);
 
     return (
         <Boundary>

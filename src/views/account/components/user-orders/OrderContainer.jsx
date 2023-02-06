@@ -8,7 +8,7 @@ export default function OrderContainer({ order }) {
   return (
     <div
       style={{
-        width: "100%", height: "300px",
+        width: "100%", height: "250px",
         backgroundColor: "white",
         border: "1px solid #E1E1E1",
         marginBottom: "1rem",

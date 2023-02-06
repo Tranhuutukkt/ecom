@@ -16,6 +16,7 @@ const ReturnDetail = ({data}) => {
 
     return(
         <>
+            <p style={{width: "7rem", borderRadius: "10px", backgroundColor: data.status? "lightskyblue":"lightpink" ||"white"}}>{data.status? " Accepted":" Refuse"||''}</p>
             <div>
                 <button
                     className='button button-small button-round'
