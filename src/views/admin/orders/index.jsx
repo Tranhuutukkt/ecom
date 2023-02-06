@@ -30,8 +30,6 @@ const Orders = () => {
         setSearchQuery(query);
     }
 
-    console.log(store.orders);
-
     const getData = () => {
         let orderList = store.orders.orders;
         if (searchQuery) {

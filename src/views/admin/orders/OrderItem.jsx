@@ -18,7 +18,6 @@ const statusDetails = [
 ];
 
 const OrderItem = ({order}) => {
-    const { isOpenModal, onOpenModal, onCloseModal } = useModal();
     const dispatch = useDispatch();
     const history = useHistory();
     const orderRef = useRef(null);

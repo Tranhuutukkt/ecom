@@ -5,7 +5,7 @@ import React, {useRef} from "react";
 import {useHistory} from "react-router-dom";
 import {RETURN_REQUEST} from "@/constants/routes";
 import ReturnForm from "@/views/account/returnForm/returnForm";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addReturnRequest} from "@/redux/actions/returnAction";
 import {CloseOutlined} from "@ant-design/icons";
 import ReviewForm from "@/components/product/review/ReviewForm";
@@ -14,8 +14,9 @@ import {useModal} from "@/hooks";
 const OrderItem = ({product, order}) => {
     const {onOpenModal, isOpenModal, onCloseModal} = useModal();
     const productRef = useRef(null);
-    const history = useHistory();
     const dispatch = useDispatch();
+
+    const profile = useSelector((state) => state.profile);
 
     const returnSubmit = (data) => {
         dispatch(addReturnRequest(data));
@@ -72,19 +73,32 @@ const OrderItem = ({product, order}) => {
                                 }}
                             />
                         </div>
-                        <div className="grid-col">
-                            <ReturnForm product={product} order={order} isLoading={false} onSubmit={returnSubmit}/>
-                        </div>
-                        <div className="grid-col">
-                            <button
-                                className={`button button-small button-round`}
-                                type="button"
-                                onClick={onOpenModal}
-                                disabled={order.status !== 4}
-                            >
-                                Write review
-                            </button>
-                        </div>
+                        {(profile.role === 'USER')? (
+                                <div>
+                                    <div className="grid-col">
+                                        <ReturnForm product={product} order={order} isLoading={false} onSubmit={returnSubmit}/>
+                                    </div>
+                                    <div className="grid-col">
+                                        <button
+                                            className={`button button-small button-round`}
+                                            type="button"
+                                            onClick={onOpenModal}
+                                            disabled={order.status !== 4}
+                                        >
+                                            Write review
+                                        </button>
+                                    </div>
+                                </div>
+
+                        ) : (
+                            <div>
+                                <div className="grid-col"></div>
+                                <div className="grid-col"></div>
+                            </div>
+
+                            )}
+
+
                     </div>
                 </div>
             </SkeletonTheme>

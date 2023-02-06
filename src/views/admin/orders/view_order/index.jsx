@@ -32,8 +32,6 @@ const ViewOrder = () => {
         if (order) setLoading(false);
     }, []);
 
-    console.log(order);
-
     const total = (product) => {
         let total = 0;
         product.map(p => {
@@ -49,6 +47,7 @@ const ViewOrder = () => {
         delete newData.name;
         delete newData.avatar;
         newData.status = id;
+        console.log(newData.status);
         dispatch(changeOrderStatus(newData));
     }
 
