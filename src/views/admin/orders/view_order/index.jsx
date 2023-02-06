@@ -11,12 +11,12 @@ const ViewOrder = () => {
     useScrollTop();
 
     const statusDetails = [
-        {msg: 'Canceled', color: "0"},
-        {msg: 'Confirming', color: "1"},
-        {msg: 'Confirmed', color: "2"},
-        {msg: 'Delivering', color: "3"},
-        {msg: 'Successfully', color: "4"},
-        {msg: 'Failed', color: "5"}
+        {msg: 'Canceled', color: 0},
+        {msg: 'Confirming', color: 1},
+        {msg: 'Confirmed', color: 2},
+        {msg: 'Delivering', color: 3},
+        {msg: 'Successfully', color: 4},
+        {msg: 'Failed', color: 5}
     ];
 
     const {id} = useParams();
