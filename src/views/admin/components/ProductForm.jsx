@@ -49,7 +49,7 @@ const FormSchema = Yup.object().shape({
           hip: Yup.number(),
           waist: Yup.number(),
           chest: Yup.number(),
-          body_height: Yup.number(),
+          body_height: Yup.number().required('This product fits with which height?'),
           })),
   isFeatured: Yup.boolean(),
   isRecommended: Yup.boolean(),

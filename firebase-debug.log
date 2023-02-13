@@ -1,0 +1,255 @@
+[debug] [2023-02-06T08:33:06.352Z] ----------------------------------------------------------------------
+[debug] [2023-02-06T08:33:06.355Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Tran Tu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2023-02-06T08:33:06.356Z] CLI Version:   11.16.1
+[debug] [2023-02-06T08:33:06.356Z] Platform:      win32
+[debug] [2023-02-06T08:33:06.356Z] Node Version:  v16.13.1
+[debug] [2023-02-06T08:33:06.377Z] Time:          Mon Feb 06 2023 15:33:06 GMT+0700 (Giờ Đông Dương)
+[debug] [2023-02-06T08:33:06.378Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-06T08:33:06.388Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-02-06T08:33:06.551Z] Field ".emulators.firestore.port" in "firebase.json" is possibly invalid: should be number
+[debug] [2023-02-06T08:33:06.558Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-06T08:33:06.559Z] > authorizing via signed-in user (tranhuutukkt@gmail.com)
+[debug] [2023-02-06T08:33:07.931Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-02-06T08:33:07.933Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-02-06T08:33:09.780Z] java version "15.0.2" 2021-01-19
+
+[debug] [2023-02-06T08:33:09.781Z] Java(TM) SE Runtime Environment (build 15.0.2+7-27)
+Java HotSpot(TM) 64-Bit Server VM (build 15.0.2+7-27, mixed mode, sharing)
+
+[debug] [2023-02-06T08:33:10.164Z] Parsed Java major version: 15
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting, storage"}}
+[debug] [2023-02-06T08:33:10.186Z] [ui] Port 4000 taken on secondary address ::1, will keep searching to find a better port.
+[warn] !  firestore: Port 4000 is not open on localhost (127.0.0.1), could not start Firestore Emulator. {"metadata":{"emulator":{"name":"firestore"},"message":"Port 4000 is not open on localhost (127.0.0.1), could not start Firestore Emulator."}}
+[warn] !  firestore: To select a different host/port, specify that host/port in a firebase.json config file:
+      {
+        // ...
+        "emulators": {
+          "firestore": {
+            "host": "HOST",
+            "port": "PORT"
+          }
+        }
+      } {"metadata":{"emulator":{"name":"firestore"},"message":"To select a different host/port, specify that host/port in a firebase.json config file:\n      {\n        // ...\n        \"emulators\": {\n          \"firestore\": {\n            \"host\": \"\u001b[33mHOST\u001b[39m\",\n            \"port\": \"\u001b[33mPORT\u001b[39m\"\n          }\n        }\n      }"}}
+[debug] [2023-02-06T08:33:10.188Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:33:10.189Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:33:10.189Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:33:10.189Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:33:10.190Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[warn] !  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
+[error] 
+[error] Error: Could not start Firestore Emulator, port taken.
+[debug] [2023-02-06T08:34:43.132Z] ----------------------------------------------------------------------
+[debug] [2023-02-06T08:34:43.134Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Tran Tu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2023-02-06T08:34:43.134Z] CLI Version:   11.16.1
+[debug] [2023-02-06T08:34:43.134Z] Platform:      win32
+[debug] [2023-02-06T08:34:43.134Z] Node Version:  v16.13.1
+[debug] [2023-02-06T08:34:43.135Z] Time:          Mon Feb 06 2023 15:34:43 GMT+0700 (Giờ Đông Dương)
+[debug] [2023-02-06T08:34:43.136Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-06T08:34:43.216Z] Field ".emulators.firestore.port" in "firebase.json" is possibly invalid: should be number
+[debug] [2023-02-06T08:34:43.223Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-06T08:34:43.223Z] > authorizing via signed-in user (tranhuutukkt@gmail.com)
+[debug] [2023-02-06T08:34:43.346Z] java version "15.0.2" 2021-01-19
+Java(TM) SE Runtime Environment (build 15.0.2+7-27)
+Java HotSpot(TM) 64-Bit Server VM (build 15.0.2+7-27, mixed mode, sharing)
+
+[debug] [2023-02-06T08:34:43.387Z] Parsed Java major version: 15
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting, storage"}}
+[debug] [2023-02-06T08:34:43.405Z] [ui] Port 4000 taken on secondary address ::1, will keep searching to find a better port.
+[warn] !  firestore: Port 4000 is not open on localhost (127.0.0.1), could not start Firestore Emulator. {"metadata":{"emulator":{"name":"firestore"},"message":"Port 4000 is not open on localhost (127.0.0.1), could not start Firestore Emulator."}}
+[warn] !  firestore: To select a different host/port, specify that host/port in a firebase.json config file:
+      {
+        // ...
+        "emulators": {
+          "firestore": {
+            "host": "HOST",
+            "port": "PORT"
+          }
+        }
+      } {"metadata":{"emulator":{"name":"firestore"},"message":"To select a different host/port, specify that host/port in a firebase.json config file:\n      {\n        // ...\n        \"emulators\": {\n          \"firestore\": {\n            \"host\": \"\u001b[33mHOST\u001b[39m\",\n            \"port\": \"\u001b[33mPORT\u001b[39m\"\n          }\n        }\n      }"}}
+[debug] [2023-02-06T08:34:43.408Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:34:43.408Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:34:43.409Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:34:43.409Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-02-06T08:34:43.410Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[warn] !  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
+[error] 
+[error] Error: Could not start Firestore Emulator, port taken.
+[debug] [2023-02-06T08:37:39.919Z] ----------------------------------------------------------------------
+[debug] [2023-02-06T08:37:39.921Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Tran Tu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2023-02-06T08:37:39.921Z] CLI Version:   11.16.1
+[debug] [2023-02-06T08:37:39.921Z] Platform:      win32
+[debug] [2023-02-06T08:37:39.922Z] Node Version:  v16.13.1
+[debug] [2023-02-06T08:37:39.923Z] Time:          Mon Feb 06 2023 15:37:39 GMT+0700 (Giờ Đông Dương)
+[debug] [2023-02-06T08:37:39.923Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-06T08:37:39.990Z] Field ".emulators.firestore.port" in "firebase.json" is possibly invalid: should be number
+[debug] [2023-02-06T08:37:39.997Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-06T08:37:39.997Z] > authorizing via signed-in user (tranhuutukkt@gmail.com)
+[debug] [2023-02-06T08:37:39.998Z] [iam] checking project itss20221-4a457 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-02-06T08:37:40.000Z] > refreshing access token with scopes: []
+[debug] [2023-02-06T08:37:40.002Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-02-06T08:37:40.002Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-06T08:37:40.200Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-02-06T08:37:40.201Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-02-06T08:37:40.216Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions [none]
+[debug] [2023-02-06T08:37:40.217Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions x-goog-quota-user=projects/itss20221-4a457
+[debug] [2023-02-06T08:37:40.217Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-02-06T08:37:41.195Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions 200
+[debug] [2023-02-06T08:37:41.195Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-02-06T08:37:41.197Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 [none]
+[debug] [2023-02-06T08:37:41.547Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 200
+[debug] [2023-02-06T08:37:41.547Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 {"projectId":"itss20221-4a457","projectNumber":"400758650008","displayName":"itss20221","name":"projects/itss20221-4a457","resources":{"hostingSite":"itss20221-4a457","realtimeDatabaseInstance":"itss20221-4a457-default-rtdb","storageBucket":"itss20221-4a457.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_3632efb8-3eb7-4cae-b7f9-c5fda07cef85"}
+[info] 
+[info] === Deploying to 'itss20221-4a457'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-02-06T08:37:41.554Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions [none]
+[debug] [2023-02-06T08:37:41.555Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-02-06T08:37:42.342Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions 200
+[debug] [2023-02-06T08:37:42.343Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions {"name":"projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[itss20221-4a457]: beginning deploy... 
+[info] i  hosting[itss20221-4a457]: found 15 files in dist 
+[debug] [2023-02-06T08:37:42.408Z] [hosting] uploading with 200 concurrency
+[debug] [2023-02-06T08:37:42.410Z] [hosting] hash cache [ZGlzdA] not populated
+[debug] [2023-02-06T08:37:42.636Z] [hosting] hash cache [ZGlzdA] stored for 15 files
+[debug] [2023-02-06T08:37:42.637Z] [hosting][hash queue][FINAL] {"max":218,"min":64,"avg":106.46666666666667,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":225}
+[debug] [2023-02-06T08:37:42.637Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65:populateFiles [none]
+[debug] [2023-02-06T08:37:42.638Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65:populateFiles {"files":{"/404.html":"daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa","/index.html":"01c6fbaa4ace66a8e7a436d29e2eb49407af6a64c15b9ba3e10c937a942487b2","/assets/favicon.bfbc0d97.png":"d33b8ae745306c6cb1492a0330745d15108425d9d92f30c54a1a7f3d2cd1727a","/assets/UserWishListTab.6c3e53c2.js":"559696b24db992ee3671afda8970a1b36b21123c6f106abc984f8e1d3717bc59","/assets/UserOrdersTab.37bcef3c.js":"74220392030e5d28c9d98e8b90a592bca23951eeb6dd55cb6f8f4e12e8db94f5","/assets/UserAccountTab.6a07a4da.js":"7daa5adbfe35ebb15e9f9c0044a8486354a0131d48732d5b132494c71824a3f9","/assets/creditcards.63c6657c.png":"e4a26fa2ab57bc7f3c721795f94f92d3c6ab192733ff5d2d10c318f294932c72","/assets/defaultBanner.2759a645.jpg":"f6b960dc62a842dad842ec62e060108c21c960ca3c8717951dd9787f73aaad2f","/assets/logo-full.05269ee6.png":"28049e2e546b02257926426c864f9027c4e8db0806d3974a4e1aa537406d9088","/assets/banner-girl-1.23493f87.png":"47d1675c9c85570310625faf90620b51b3d93c9a5dd910135271fddeaeab9a82","/assets/defaultAvatar.964b44af.jpg":"75ec29f5d8fe7e5c362f2fe997530f8cb613c34321b6cc9e9288f216057c1e8e","/assets/index.413688eb.css":"1e3de0901dc93c6ddece5bbd13975d949801edcf50fa727516a0c698945a9a5c","/assets/banner-guy.0729a23e.png":"33f16977187cd6f218668cae458ae1f1a7d3ed8dea26d54846b488286e78ab98","/assets/banner-girl.cc69a475.png":"5a7737cafbfe345ba23c45ea8f514d645b3269420c1f21c50f184f239259303a","/assets/index.795f67e5.js":"0a6bedec1b7e85baa5df0706e11a30990b5badca6a15473fe0e47650de123e70"}}
+[debug] [2023-02-06T08:37:43.153Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65:populateFiles 200
+[debug] [2023-02-06T08:37:43.154Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65:populateFiles {"uploadRequiredHashes":["0a6bedec1b7e85baa5df0706e11a30990b5badca6a15473fe0e47650de123e70","d33b8ae745306c6cb1492a0330745d15108425d9d92f30c54a1a7f3d2cd1727a","7daa5adbfe35ebb15e9f9c0044a8486354a0131d48732d5b132494c71824a3f9","33f16977187cd6f218668cae458ae1f1a7d3ed8dea26d54846b488286e78ab98","f6b960dc62a842dad842ec62e060108c21c960ca3c8717951dd9787f73aaad2f","75ec29f5d8fe7e5c362f2fe997530f8cb613c34321b6cc9e9288f216057c1e8e","1e3de0901dc93c6ddece5bbd13975d949801edcf50fa727516a0c698945a9a5c","01c6fbaa4ace66a8e7a436d29e2eb49407af6a64c15b9ba3e10c937a942487b2","e4a26fa2ab57bc7f3c721795f94f92d3c6ab192733ff5d2d10c318f294932c72","28049e2e546b02257926426c864f9027c4e8db0806d3974a4e1aa537406d9088","47d1675c9c85570310625faf90620b51b3d93c9a5dd910135271fddeaeab9a82","74220392030e5d28c9d98e8b90a592bca23951eeb6dd55cb6f8f4e12e8db94f5","559696b24db992ee3671afda8970a1b36b21123c6f106abc984f8e1d3717bc59","5a7737cafbfe345ba23c45ea8f514d645b3269420c1f21c50f184f239259303a","daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files"}
+[debug] [2023-02-06T08:37:43.163Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/0a6bedec1b7e85baa5df0706e11a30990b5badca6a15473fe0e47650de123e70 [none]
+[debug] [2023-02-06T08:37:43.164Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/0a6bedec1b7e85baa5df0706e11a30990b5badca6a15473fe0e47650de123e70 [stream]
+[debug] [2023-02-06T08:37:43.166Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/d33b8ae745306c6cb1492a0330745d15108425d9d92f30c54a1a7f3d2cd1727a [none]
+[debug] [2023-02-06T08:37:43.166Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/d33b8ae745306c6cb1492a0330745d15108425d9d92f30c54a1a7f3d2cd1727a [stream]
+[debug] [2023-02-06T08:37:43.168Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/7daa5adbfe35ebb15e9f9c0044a8486354a0131d48732d5b132494c71824a3f9 [none]
+[debug] [2023-02-06T08:37:43.168Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/7daa5adbfe35ebb15e9f9c0044a8486354a0131d48732d5b132494c71824a3f9 [stream]
+[debug] [2023-02-06T08:37:43.170Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/33f16977187cd6f218668cae458ae1f1a7d3ed8dea26d54846b488286e78ab98 [none]
+[debug] [2023-02-06T08:37:43.171Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/33f16977187cd6f218668cae458ae1f1a7d3ed8dea26d54846b488286e78ab98 [stream]
+[debug] [2023-02-06T08:37:43.173Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/f6b960dc62a842dad842ec62e060108c21c960ca3c8717951dd9787f73aaad2f [none]
+[debug] [2023-02-06T08:37:43.174Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/f6b960dc62a842dad842ec62e060108c21c960ca3c8717951dd9787f73aaad2f [stream]
+[debug] [2023-02-06T08:37:43.175Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/75ec29f5d8fe7e5c362f2fe997530f8cb613c34321b6cc9e9288f216057c1e8e [none]
+[debug] [2023-02-06T08:37:43.176Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/75ec29f5d8fe7e5c362f2fe997530f8cb613c34321b6cc9e9288f216057c1e8e [stream]
+[debug] [2023-02-06T08:37:43.177Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/1e3de0901dc93c6ddece5bbd13975d949801edcf50fa727516a0c698945a9a5c [none]
+[debug] [2023-02-06T08:37:43.177Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/1e3de0901dc93c6ddece5bbd13975d949801edcf50fa727516a0c698945a9a5c [stream]
+[debug] [2023-02-06T08:37:43.179Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/01c6fbaa4ace66a8e7a436d29e2eb49407af6a64c15b9ba3e10c937a942487b2 [none]
+[debug] [2023-02-06T08:37:43.180Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/01c6fbaa4ace66a8e7a436d29e2eb49407af6a64c15b9ba3e10c937a942487b2 [stream]
+[debug] [2023-02-06T08:37:43.181Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/e4a26fa2ab57bc7f3c721795f94f92d3c6ab192733ff5d2d10c318f294932c72 [none]
+[debug] [2023-02-06T08:37:43.181Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/e4a26fa2ab57bc7f3c721795f94f92d3c6ab192733ff5d2d10c318f294932c72 [stream]
+[debug] [2023-02-06T08:37:43.183Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/28049e2e546b02257926426c864f9027c4e8db0806d3974a4e1aa537406d9088 [none]
+[debug] [2023-02-06T08:37:43.183Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/28049e2e546b02257926426c864f9027c4e8db0806d3974a4e1aa537406d9088 [stream]
+[debug] [2023-02-06T08:37:43.184Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/47d1675c9c85570310625faf90620b51b3d93c9a5dd910135271fddeaeab9a82 [none]
+[debug] [2023-02-06T08:37:43.184Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/47d1675c9c85570310625faf90620b51b3d93c9a5dd910135271fddeaeab9a82 [stream]
+[debug] [2023-02-06T08:37:43.185Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/74220392030e5d28c9d98e8b90a592bca23951eeb6dd55cb6f8f4e12e8db94f5 [none]
+[debug] [2023-02-06T08:37:43.186Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/74220392030e5d28c9d98e8b90a592bca23951eeb6dd55cb6f8f4e12e8db94f5 [stream]
+[debug] [2023-02-06T08:37:43.189Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/559696b24db992ee3671afda8970a1b36b21123c6f106abc984f8e1d3717bc59 [none]
+[debug] [2023-02-06T08:37:43.190Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/559696b24db992ee3671afda8970a1b36b21123c6f106abc984f8e1d3717bc59 [stream]
+[debug] [2023-02-06T08:37:43.191Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/5a7737cafbfe345ba23c45ea8f514d645b3269420c1f21c50f184f239259303a [none]
+[debug] [2023-02-06T08:37:43.191Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/5a7737cafbfe345ba23c45ea8f514d645b3269420c1f21c50f184f239259303a [stream]
+[debug] [2023-02-06T08:37:43.192Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa [none]
+[debug] [2023-02-06T08:37:43.192Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa [stream]
+[debug] [2023-02-06T08:37:43.194Z] [hosting][populate queue][FINAL] {"max":528,"min":528,"avg":528,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":559}
+[debug] [2023-02-06T08:37:43.194Z] [hosting] uploads queued: 15
+[debug] [2023-02-06T08:37:44.256Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/e4a26fa2ab57bc7f3c721795f94f92d3c6ab192733ff5d2d10c318f294932c72 200
+[debug] [2023-02-06T08:37:44.257Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/e4a26fa2ab57bc7f3c721795f94f92d3c6ab192733ff5d2d10c318f294932c72 [stream]
+[debug] [2023-02-06T08:37:44.258Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/1e3de0901dc93c6ddece5bbd13975d949801edcf50fa727516a0c698945a9a5c 200
+[debug] [2023-02-06T08:37:44.258Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/1e3de0901dc93c6ddece5bbd13975d949801edcf50fa727516a0c698945a9a5c [stream]
+[debug] [2023-02-06T08:37:44.266Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa 200
+[debug] [2023-02-06T08:37:44.266Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa [stream]
+[debug] [2023-02-06T08:37:44.276Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/47d1675c9c85570310625faf90620b51b3d93c9a5dd910135271fddeaeab9a82 200
+[debug] [2023-02-06T08:37:44.277Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/47d1675c9c85570310625faf90620b51b3d93c9a5dd910135271fddeaeab9a82 [stream]
+[debug] [2023-02-06T08:37:44.416Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/559696b24db992ee3671afda8970a1b36b21123c6f106abc984f8e1d3717bc59 200
+[debug] [2023-02-06T08:37:44.418Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/559696b24db992ee3671afda8970a1b36b21123c6f106abc984f8e1d3717bc59 [stream]
+[debug] [2023-02-06T08:37:44.449Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/7daa5adbfe35ebb15e9f9c0044a8486354a0131d48732d5b132494c71824a3f9 200
+[debug] [2023-02-06T08:37:44.450Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/7daa5adbfe35ebb15e9f9c0044a8486354a0131d48732d5b132494c71824a3f9 [stream]
+[debug] [2023-02-06T08:37:44.522Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/01c6fbaa4ace66a8e7a436d29e2eb49407af6a64c15b9ba3e10c937a942487b2 200
+[debug] [2023-02-06T08:37:44.523Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/01c6fbaa4ace66a8e7a436d29e2eb49407af6a64c15b9ba3e10c937a942487b2 [stream]
+[debug] [2023-02-06T08:37:44.525Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/75ec29f5d8fe7e5c362f2fe997530f8cb613c34321b6cc9e9288f216057c1e8e 200
+[debug] [2023-02-06T08:37:44.525Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/75ec29f5d8fe7e5c362f2fe997530f8cb613c34321b6cc9e9288f216057c1e8e [stream]
+[debug] [2023-02-06T08:37:44.567Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/5a7737cafbfe345ba23c45ea8f514d645b3269420c1f21c50f184f239259303a 200
+[debug] [2023-02-06T08:37:44.567Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/5a7737cafbfe345ba23c45ea8f514d645b3269420c1f21c50f184f239259303a [stream]
+[debug] [2023-02-06T08:37:44.717Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/d33b8ae745306c6cb1492a0330745d15108425d9d92f30c54a1a7f3d2cd1727a 200
+[debug] [2023-02-06T08:37:44.718Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/d33b8ae745306c6cb1492a0330745d15108425d9d92f30c54a1a7f3d2cd1727a [stream]
+[debug] [2023-02-06T08:37:44.810Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/f6b960dc62a842dad842ec62e060108c21c960ca3c8717951dd9787f73aaad2f 200
+[debug] [2023-02-06T08:37:44.811Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/f6b960dc62a842dad842ec62e060108c21c960ca3c8717951dd9787f73aaad2f [stream]
+[debug] [2023-02-06T08:37:44.881Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/33f16977187cd6f218668cae458ae1f1a7d3ed8dea26d54846b488286e78ab98 200
+[debug] [2023-02-06T08:37:44.881Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/33f16977187cd6f218668cae458ae1f1a7d3ed8dea26d54846b488286e78ab98 [stream]
+[debug] [2023-02-06T08:37:45.254Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/28049e2e546b02257926426c864f9027c4e8db0806d3974a4e1aa537406d9088 200
+[debug] [2023-02-06T08:37:45.255Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/28049e2e546b02257926426c864f9027c4e8db0806d3974a4e1aa537406d9088 [stream]
+[debug] [2023-02-06T08:37:45.483Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/74220392030e5d28c9d98e8b90a592bca23951eeb6dd55cb6f8f4e12e8db94f5 200
+[debug] [2023-02-06T08:37:45.484Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/74220392030e5d28c9d98e8b90a592bca23951eeb6dd55cb6f8f4e12e8db94f5 [stream]
+[debug] [2023-02-06T08:37:45.573Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/0a6bedec1b7e85baa5df0706e11a30990b5badca6a15473fe0e47650de123e70 200
+[debug] [2023-02-06T08:37:45.574Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/itss20221-4a457/versions/6571c3398a6b0b65/files/0a6bedec1b7e85baa5df0706e11a30990b5badca6a15473fe0e47650de123e70 [stream]
+[debug] [2023-02-06T08:37:45.574Z] [hosting][upload queue][FINAL] {"max":2418,"min":1097,"avg":1524.8,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":2418}
+[info] +  hosting[itss20221-4a457]: file upload complete 
+[debug] [2023-02-06T08:37:45.576Z] [hosting] deploy completed after 3225ms
+[debug] [2023-02-06T08:37:45.579Z] [
+  {
+    "config": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "itss20221-4a457"
+    },
+    "version": "projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65"
+  }
+]
+[info] i  hosting[itss20221-4a457]: finalizing version... 
+[debug] [2023-02-06T08:37:45.582Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions/6571c3398a6b0b65 updateMask=status%2Cconfig
+[debug] [2023-02-06T08:37:45.583Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions/6571c3398a6b0b65 {"status":"FINALIZED","config":{}}
+[debug] [2023-02-06T08:37:46.127Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions/6571c3398a6b0b65 200
+[debug] [2023-02-06T08:37:46.128Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/versions/6571c3398a6b0b65 {"name":"projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-02-06T08:37:43.151517Z","createUser":{"email":"tranhuutukkt@gmail.com"},"finalizeTime":"2023-02-06T08:37:47.238201Z","finalizeUser":{"email":"tranhuutukkt@gmail.com"}}
+[debug] [2023-02-06T08:37:46.130Z] [hosting] finalized version for itss20221-4a457:[object Object]
+[info] +  hosting[itss20221-4a457]: version finalized 
+[info] i  hosting[itss20221-4a457]: releasing new version... 
+[debug] [2023-02-06T08:37:46.134Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/channels/live/releases versionName=projects%2F400758650008%2Fsites%2Fitss20221-4a457%2Fversions%2F6571c3398a6b0b65
+[debug] [2023-02-06T08:37:46.135Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/channels/live/releases {}
+[debug] [2023-02-06T08:37:46.688Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/channels/live/releases 200
+[debug] [2023-02-06T08:37:46.689Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/itss20221-4a457/channels/live/releases {"name":"projects/400758650008/sites/itss20221-4a457/channels/live/releases/1675672667200000","version":{"name":"projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-02-06T08:37:43.151517Z","createUser":{"email":"tranhuutukkt@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7_DxIrIePIP-5paPJ28IxLLBWYjMHB2_KfAS9lcQ"},"finalizeTime":"2023-02-06T08:37:47.238201Z","finalizeUser":{"email":"tranhuutukkt@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7_DxIrIePIP-5paPJ28IxLLBWYjMHB2_KfAS9lcQ"}},"type":"DEPLOY","releaseTime":"2023-02-06T08:37:47.200Z","releaseUser":{"email":"tranhuutukkt@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7_DxIrIePIP-5paPJ28IxLLBWYjMHB2_KfAS9lcQ"}}
+[debug] [2023-02-06T08:37:46.690Z] [hosting] release: {"name":"projects/400758650008/sites/itss20221-4a457/channels/live/releases/1675672667200000","version":{"name":"projects/400758650008/sites/itss20221-4a457/versions/6571c3398a6b0b65","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-02-06T08:37:43.151517Z","createUser":{"email":"tranhuutukkt@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7_DxIrIePIP-5paPJ28IxLLBWYjMHB2_KfAS9lcQ"},"finalizeTime":"2023-02-06T08:37:47.238201Z","finalizeUser":{"email":"tranhuutukkt@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7_DxIrIePIP-5paPJ28IxLLBWYjMHB2_KfAS9lcQ"}},"type":"DEPLOY","releaseTime":"2023-02-06T08:37:47.200Z","releaseUser":{"email":"tranhuutukkt@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp7_DxIrIePIP-5paPJ28IxLLBWYjMHB2_KfAS9lcQ"}}
+[info] +  hosting[itss20221-4a457]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/itss20221-4a457/overview
+[info] Hosting URL: https://itss20221-4a457.web.app
+[debug] [2023-02-06T08:43:19.575Z] ----------------------------------------------------------------------
+[debug] [2023-02-06T08:43:19.577Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Tran Tu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-02-06T08:43:19.578Z] CLI Version:   11.16.1
+[debug] [2023-02-06T08:43:19.578Z] Platform:      win32
+[debug] [2023-02-06T08:43:19.578Z] Node Version:  v16.13.1
+[debug] [2023-02-06T08:43:19.579Z] Time:          Mon Feb 06 2023 15:43:19 GMT+0700 (Giờ Đông Dương)
+[debug] [2023-02-06T08:43:19.579Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-06T08:43:19.645Z] Field ".emulators.firestore.port" in "firebase.json" is possibly invalid: should be number
+[debug] [2023-02-06T08:43:19.651Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-06T08:43:19.652Z] > authorizing via signed-in user (tranhuutukkt@gmail.com)
+[debug] [2023-02-06T08:43:19.652Z] [iam] checking project itss20221-4a457 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2023-02-06T08:43:19.655Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions [none]
+[debug] [2023-02-06T08:43:19.656Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions x-goog-quota-user=projects/itss20221-4a457
+[debug] [2023-02-06T08:43:19.656Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-02-06T08:43:20.613Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions 200
+[debug] [2023-02-06T08:43:20.614Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/itss20221-4a457:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-02-06T08:43:20.615Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/itss20221-4a457/serviceAccounts/itss20221-4a457@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-02-06T08:43:20.616Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/itss20221-4a457/serviceAccounts/itss20221-4a457@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-02-06T08:43:21.583Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/itss20221-4a457/serviceAccounts/itss20221-4a457@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-02-06T08:43:21.585Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/itss20221-4a457/serviceAccounts/itss20221-4a457@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-02-06T08:43:21.589Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 [none]
+[debug] [2023-02-06T08:43:22.046Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 200
+[debug] [2023-02-06T08:43:22.048Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 {"projectId":"itss20221-4a457","projectNumber":"400758650008","displayName":"itss20221","name":"projects/itss20221-4a457","resources":{"hostingSite":"itss20221-4a457","realtimeDatabaseInstance":"itss20221-4a457-default-rtdb","storageBucket":"itss20221-4a457.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_4edc92c8-266d-4f46-b797-f6bbfaa58f6a"}
+[debug] [2023-02-06T08:43:22.051Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 [none]
+[debug] [2023-02-06T08:43:22.396Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 200
+[debug] [2023-02-06T08:43:22.398Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/itss20221-4a457 {"projectId":"itss20221-4a457","projectNumber":"400758650008","displayName":"itss20221","name":"projects/itss20221-4a457","resources":{"hostingSite":"itss20221-4a457","realtimeDatabaseInstance":"itss20221-4a457-default-rtdb","storageBucket":"itss20221-4a457.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_4edc92c8-266d-4f46-b797-f6bbfaa58f6a"}
+[info] 
+[info] === Deploying to 'itss20221-4a457'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[error] 
+[error] Error: functions predeploy error: Command terminated with non-zero exit code 4294963238

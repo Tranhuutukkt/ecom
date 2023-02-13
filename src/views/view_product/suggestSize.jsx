@@ -17,6 +17,7 @@ const getFitSize = (sizeTable, profile) => {
     }
 
     for ( let i = 0; i < sizeTable.length; i++){
+        if (isNaN(sizeTable[i].hip)) {fitSize[1] = ""; break;}
         if (profile.hip <= sizeTable[i].hip){
             if (fitSize[1] === -1) fitSize[1] = i;
             else {
@@ -28,6 +29,7 @@ const getFitSize = (sizeTable, profile) => {
     }
 
     for ( let i = 0; i < sizeTable.length; i++){
+        if (isNaN(sizeTable[i].waist)) {fitSize[2] = ""; break;}
         if (profile.waist <= sizeTable[i].waist){
             if (fitSize[2] === -1) fitSize[2] = i;
             else {
@@ -39,7 +41,8 @@ const getFitSize = (sizeTable, profile) => {
     }
 
     for ( let i = 0; i < sizeTable.length; i++){
-        if (profile.chest <= sizeTable[i].chest){
+        if (isNaN(sizeTable[i].chest)) {fitSize[3] = ""; break;}
+        else if (profile.chest <= sizeTable[i].chest){
             if (fitSize[3] === -1) fitSize[3] = i;
             else {
                 if (profile.chest - sizeTable[i].chest > profile.chest - sizeTable[fitSize[3]].chest){
@@ -48,10 +51,7 @@ const getFitSize = (sizeTable, profile) => {
             }
         }
     }
-
-
-    const item = Math.max(...fitSize) === -1 ? -1: Math.max(...fitSize);
-
+    const item = Math.min(...fitSize) === -1 ? -1 : Math.max(...fitSize);
     return {item, fitSize};
 }
 
@@ -63,6 +63,7 @@ const SuggestSize = ({size}) => {
     const sizeTable = product?.sizes.sort((a, b) => (a.body_height < b.body_height ? -1 : 1)) || [];
 
     const fit = getFitSize(sizeTable, profile);
+
     return (
         <div>
             {product && !isLoading && (
